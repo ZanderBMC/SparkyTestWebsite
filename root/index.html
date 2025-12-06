@@ -1,1 +1,566 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apex Electrical Solutions | Trusted Aussie Sparkies</title>
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-blue: #004085; /* Deep Navy */
+            --electric-blue: #0056b3; /* Brighter Blue */
+            --safety-orange: #ff6700; /* Call to Action */
+            --light-grey: #f4f6f8;
+            --text-dark: #333;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+
+        /* --- NAVIGATION --- */
+        nav {
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-blue);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span { color: var(--safety-orange); }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            font-weight: 600;
+        }
+
+        .nav-links a:hover { color: var(--electric-blue); }
+
+        .nav-cta {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .phone-number {
+            font-weight: 700;
+            color: var(--primary-blue);
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            background: var(--safety-orange);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 700;
+            transition: 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn:hover { background: #e05a00; transform: translateY(-2px); }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 85vh;
+            /* UPDATED: Uses simplified filename hero.png */
+            background: linear-gradient(rgba(0, 30, 60, 0.7), rgba(0, 30, 60, 0.5)), 
+                        url('hero.png');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services {
+            padding: 80px 10%;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .section-header h2 {
+            color: var(--primary-blue);
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            max-width: 600px;
+            margin: 0 auto 50px auto;
+            color: #666;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: 0.3s;
+            text-align: left;
+            border: 1px solid #eee;
+        }
+
+        .service-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.15); }
+
+        .service-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-content { padding: 25px; }
+        .card-content h3 { color: var(--primary-blue); margin-bottom: 10px; }
+        .card-content a { color: var(--safety-orange); font-weight: 700; margin-top: 15px; display: inline-block; }
+
+        /* --- WHY CHOOSE US --- */
+        .why-us {
+            padding: 80px 10%;
+            /* UPDATED: Uses simplified filename texture.png */
+            background: linear-gradient(rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.95)),
+                        url('texture.png');
+            background-size: cover;
+            border-top: 5px solid var(--safety-orange);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .feature-item h3 { color: var(--primary-blue); margin-bottom: 10px; }
+        .feature-item p { font-size: 0.95rem; }
+
+        /* --- TESTIMONIALS --- */
+        .testimonials {
+            padding: 80px 10%;
+            background: var(--light-grey);
+            text-align: center;
+        }
+
+        .testimonial-box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
+            font-style: italic;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: #1a1a1a;
+            color: #aaa;
+            padding: 50px 10%;
+            font-size: 0.9rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 { color: white; margin-bottom: 20px; }
+        .footer-col ul li { margin-bottom: 10px; }
+        .footer-bottom { border-top: 1px solid #333; padding-top: 20px; text-align: center; }
+
+        /* --- AI CHATBOT WIDGET --- */
+        .chatbot-toggler {
+            position: fixed;
+            bottom: 30px;
+            right: 35px;
+            outline: none;
+            border: none;
+            height: 60px;
+            width: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: var(--electric-blue);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            z-index: 2000;
+        }
+        
+        .chatbot-toggler span {
+            color: white;
+            font-size: 30px;
+        }
+
+        .chatbot {
+            position: fixed;
+            right: 35px;
+            bottom: 100px;
+            width: 350px;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            opacity: 0;
+            pointer-events: none;
+            transform: scale(0.5);
+            transform-origin: bottom right;
+            box-shadow: 0 0 128px 0 rgba(0,0,0,0.1),
+                        0 32px 64px -48px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            z-index: 2000;
+        }
+
+        body.show-chatbot .chatbot {
+            opacity: 1;
+            pointer-events: auto;
+            transform: scale(1);
+        }
+
+        .chatbot header {
+            background: var(--electric-blue);
+            padding: 16px 0;
+            position: relative;
+            text-align: center;
+            color: #fff;
+        }
+
+        .chatbot header h2 { font-size: 1.2rem; display: flex; align-items: center; justify-content: center; gap: 8px;}
+
+        .chatbox {
+            overflow-y: auto;
+            height: 300px;
+            padding: 15px 20px 70px;
+            background: #fbfbfb;
+        }
+
+        .chatbox .chat { display: flex; list-style: none; margin-bottom: 15px; }
+        
+        .chatbox .outgoing { margin: 20px 0; justify-content: flex-end; }
+        .chatbox .incoming span { width: 32px; height: 32px; color: #fff; background: var(--electric-blue); text-align: center; line-height: 32px; border-radius: 4px; margin-right: 10px; align-self: flex-end;}
+        
+        .chatbox .chat p {
+            white-space: pre-wrap;
+            padding: 12px 16px;
+            border-radius: 10px 10px 0 10px;
+            max-width: 75%;
+            font-size: 0.95rem;
+        }
+
+        .chatbox .outgoing p { background: var(--electric-blue); color: #fff; border-radius: 10px 10px 10px 0; }
+        .chatbox .incoming p { background: #e2e2e2; color: #000; border-radius: 10px 10px 10px 0;}
+
+        .chat-input {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            gap: 5px;
+            background: #fff;
+            padding: 3px 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .chat-input textarea {
+            height: 55px;
+            width: 100%;
+            border: none;
+            outline: none;
+            resize: none;
+            max-height: 180px;
+            padding: 15px 15px 15px 0;
+            font-size: 0.95rem;
+        }
+
+        .chat-input span {
+            align-self: flex-end;
+            color: var(--electric-blue);
+            cursor: pointer;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .phone-number { display: none; }
+            .hero h1 { font-size: 2.2rem; }
+            .chatbot { right: 0; bottom: 0; width: 100%; height: 100%; border-radius: 0; }
+            .chatbot-toggler { right: 20px; bottom: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">⚡ APEX <span>ELECTRICAL</span></div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Residential</a>
+            <a href="#">Commercial</a>
+            <a href="#">About Us</a>
+        </div>
+        <div class="nav-cta">
+            <div class="phone-number">📞 1300 SPARKIE</div>
+            <button class="btn">Get a Free Quote</button>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Your Local, Trusted Australian Sparkies.</h1>
+            <p>Fully licensed A-Grade electricians keeping your home safe and powered. Over 25 years of reliable service.</p>
+            <button class="btn" style="font-size: 1.2rem; padding: 15px 35px;">Book a Job Online</button>
+            <p style="margin-top: 15px; font-size: 0.9rem; opacity: 0.9;"><a href="#">Need emergency help? Call us 24/7</a></p>
+        </div>
+    </header>
+
+    <section class="services">
+        <div class="section-header">
+            <h2>Our Expertise</h2>
+            <p>Just like a good roof protects your home from the top down, a safe electrical system protects everything inside it.</p>
+        </div>
+
+        <div class="service-grid">
+            <div class="service-card">
+                <img src="switchboard.png" alt="New Switchboard">
+                <div class="card-content">
+                    <h3>Switchboard Upgrades</h3>
+                    <p>Still on ceramic fuses? We upgrade homes to modern standards with mandatory RCBO safety switches to protect your family.</p>
+                    <a href="#">Learn About Safety &rarr;</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="lighting.png" alt="LED Lighting">
+                <div class="card-content">
+                    <h3>LED Lighting & Fans</h3>
+                    <p>Transform your home with energy-efficient LED downlights or ceiling fans. We supply and install leading Aussie brands.</p>
+                    <a href="#">View Lighting Options &rarr;</a>
+                </div>
+            </div>
+
+            <div class="service-card">
+                <img src="repair.png" alt="Powerpoint Installation">
+                <div class="card-content">
+                    <h3>Power Points & Repairs</h3>
+                    <p>Faulty switches? Need extra outlets? We provide fast repairs and installations with a focus on neatness and compliance.</p>
+                    <a href="#">Book a Repair &rarr;</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="why-us">
+        <div class="section-header">
+            <h2>The Apex Difference</h2>
+            <p>Old School Service, Modern Standards.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>✅ Fully Licensed & Insured</h3>
+                <p>REC #555123. We carry $20M public liability insurance. All work complies strictly with AS/NZS 3000 Wiring Rules.</p>
+            </div>
+            <div class="feature-item">
+                <h3>✅ We Turn Up On Time</h3>
+                <p>We provide clear arrival windows and call when we are on the way. No waiting around all day.</p>
+            </div>
+            <div class="feature-item">
+                <h3>✅ Lifetime Guarantee</h3>
+                <p>If our installation fails due to workmanship, we fix it for free. Forever.</p>
+            </div>
+            <div class="feature-item">
+                <h3>✅ Upfront Pricing</h3>
+                <p>We provide transparent pricing before we start the job. No nasty surprises at the end.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="testimonial-box">
+            <p>"Had Alex from Apex out to upgrade our old fuse box. He was polite, turned up exactly when he said he would, and left the garage spotless. Great to find an honest local sparkie."</p>
+            <p style="margin-top: 15px; font-weight: bold;">- Sarah T., Local Resident ⭐⭐⭐⭐⭐</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h4>Apex Electrical Solutions</h4>
+                <p>REC: 555123 | ABN: 12 345 678 910</p>
+                <p>Servicing the Greater Metropolitan Area.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Electrical Safety Check</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Contact</h4>
+                <p>📞 1300 SPARKIE</p>
+                <p>✉️ admin@apexelectrical.com.au</p>
+                <p>⏰ Mon-Fri: 7am - 5pm</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Apex Electrical Solutions Pty Ltd.</p>
+        </div>
+    </footer>
+
+    <button class="chatbot-toggler">
+        <span>💬</span>
+    </button>
+    <div class="chatbot">
+        <header>
+            <h2>🤖 SparkyBot</h2>
+        </header>
+        <ul class="chatbox">
+            <li class="chat incoming">
+                <span>🤖</span>
+                <p>G'day! I'm SparkyBot. How can I help with your electrical needs today?</p>
+            </li>
+        </ul>
+        <div class="chat-input">
+            <textarea placeholder="Type a message..." required></textarea>
+            <span id="send-btn">➤</span>
+        </div>
+    </div>
+
+    <script>
+        const chatbotToggler = document.querySelector(".chatbot-toggler");
+        const chatbot = document.querySelector(".chatbot");
+        const chatInput = document.querySelector(".chat-input textarea");
+        const sendChatBtn = document.querySelector(".chat-input span");
+        const chatbox = document.querySelector(".chatbox");
+
+        let userMessage;
+
+        const createChatLi = (message, className) => {
+            const chatLi = document.createElement("li");
+            chatLi.classList.add("chat", className);
+            let chatContent = className === "outgoing" ? `<p></p>` : `<span>🤖</span><p></p>`;
+            chatLi.innerHTML = chatContent;
+            chatLi.querySelector("p").textContent = message;
+            return chatLi;
+        }
+
+        const generateResponse = (incomingChatLi) => {
+            const messageElement = incomingChatLi.querySelector("p");
+            
+            // SIMULATED AI LOGIC
+            const lowerMsg = userMessage.toLowerCase();
+            let response = "";
+
+            // SAFETY FIRST LOGIC
+            if (lowerMsg.includes("spark") || lowerMsg.includes("smoke") || lowerMsg.includes("fire") || lowerMsg.includes("tingle") || lowerMsg.includes("buzz") || lowerMsg.includes("bang")) {
+                response = "⚠️ SAFETY WARNING: This sounds like an electrical emergency. Please stay away from the area. If there is fire, call 000 immediately. Otherwise, call our emergency line on 1300 SPARKIE right now. Do not touch the affected equipment.";
+            }
+            // PRICING LOGIC
+            else if (lowerMsg.includes("price") || lowerMsg.includes("cost") || lowerMsg.includes("quote") || lowerMsg.includes("how much")) {
+                response = "Because every home is wired differently, we don't give blind quotes online. We offer upfront pricing once we see the job. Would you like to book a free onsite assessment?";
+            }
+            // LOCATION LOGIC
+            else if (lowerMsg.includes("location") || lowerMsg.includes("area") || lowerMsg.includes("suburb")) {
+                response = "We service the entire metropolitan area! If you are within 50km of the CBD, we've got you covered.";
+            }
+            // GENERAL
+            else {
+                response = "Thanks for the message. I'm a specialized bot, so I might not know that answer! To chat with a real sparkie, please call 1300 SPARKIE or click 'Book Online'.";
+            }
+
+            // Simulate typing delay
+            setTimeout(() => {
+                messageElement.textContent = response;
+                chatbox.scrollTo(0, chatbox.scrollHeight);
+            }, 600);
+        }
+
+        const handleChat = () => {
+            userMessage = chatInput.value.trim();
+            if(!userMessage) return;
+
+            // Append User Message
+            chatbox.appendChild(createChatLi(userMessage, "outgoing"));
+            chatbox.scrollTo(0, chatbox.scrollHeight);
+            chatInput.value = "";
+
+            // Append Bot "Thinking" Message
+            setTimeout(() => {
+                const incomingChatLi = createChatLi("Thinking...", "incoming");
+                chatbox.appendChild(incomingChatLi);
+                chatbox.scrollTo(0, chatbox.scrollHeight);
+                generateResponse(incomingChatLi);
+            }, 600);
+        }
+
+        sendChatBtn.addEventListener("click", handleChat);
+        chatInput.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" && !e.shiftKey) {
+                e.preventDefault();
+                handleChat();
+            }
+        });
+        chatbotToggler.addEventListener("click", () => document.body.classList.toggle("show-chatbot"));
+    </script>
+
+</body>
+</html>
