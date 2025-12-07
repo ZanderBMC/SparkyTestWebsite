@@ -55,18 +55,15 @@
     @media (max-width:880px){.nav-links,.phone{display:none}}
 
     /* HERO */
-    .hero{position:relative;min-height:78vh;display:grid;align-items:center;background:url('assets/WebsiteHero.png') center/cover no-repeat;color:var(--text)}
-    .hero .container{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;padding:60px 20px;background:#fff;border-radius:18px;margin-top:30px;margin-bottom:30px;box-shadow:0 12px 40px rgba(0,0,0,.18)}
-    .hero-content h1{font-size:clamp(32px,4vw,48px);margin:0 0 14px;line-height:1.2;color:var(--primary);text-shadow:0 2px 12px rgba(255,255,255,.6)}
-    .hero-content p{max-width:640px;color:#314158;margin:0 0 16px;font-weight:600}
+    .hero{position:relative;min-height:78vh;display:grid;align-items:center;background:linear-gradient(120deg,rgba(12,47,85,.88),rgba(12,47,85,.72)),url('assets/WebsiteHero.png') center/cover no-repeat;color:#fff}
+    .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.08),transparent 35%),radial-gradient(circle at 80% 0,rgba(255,255,255,.05),transparent 30%)}
+    .hero .container{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;padding:60px 20px}
+    .hero-content h1{font-size:clamp(32px,4vw,48px);margin:0 0 14px;line-height:1.2}
+    .hero-content p{max-width:640px;color:#e6ecf5;margin:0 0 16px}
     .hero-points{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:18px 0}
-    .pill{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:#eef2f8;color:#1f2a3d}
-    .review-badges{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
-    .review-badge{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:12px;background:#2f3237;border:1px solid rgba(0,0,0,.12);color:#f7f9fb;font-weight:800;box-shadow:0 8px 20px rgba(0,0,0,.25)}
-    .review-badge small{display:block;font-weight:600;color:#d7dde6;line-height:1.35}
-    .review-badge .stars{color:#f5c344;letter-spacing:2px}
+    .pill{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.08);backdrop-filter:blur(4px)}
     .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
-    .hero-card{background:#fff;color:var(--text);border-radius:16px;padding:18px;border:1px solid #e3e8ef;box-shadow:0 12px 32px rgba(0,0,0,.16)}
+    .hero-card{background:#fff;color:var(--text);border-radius:16px;padding:18px;border:1px solid #e3e8ef;box-shadow:0 20px 60px rgba(0,0,0,.25)}
     .hero-card h3{margin:0 0 8px;color:var(--primary)}
     .hero-card form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
     .hero-card input,.hero-card textarea{width:100%;padding:10px;border:1px solid #d7dfe8;border-radius:10px;font:inherit}
@@ -174,43 +171,25 @@
           <div class="pill">✅ Upfront pricing with written scope</div>
           <div class="pill">✅ Serving Sydney Metro & surrounds</div>
         </div>
-        <div class="review-badges" aria-label="Ratings and memberships">
-          <div class="review-badge" aria-label="Facebook rating">
-            📘
-            <div><div>Facebook</div><small class="stars">★★★★☆</small><small>4.9 • Based on 49 reviews</small></div>
-          </div>
-          <div class="review-badge" aria-label="Google rating">
-            🌐
-            <div><div>Google</div><small class="stars">★★★★☆</small><small>4.8 • Based on 38 reviews</small></div>
-          </div>
-          <div class="review-badge" aria-label="Accredited business rating">
-            🏆
-            <div><div>A+ Rating</div><small>Accredited business</small></div>
-          </div>
-        </div>
         <div class="hero-actions">
           <a class="btn" href="#quote">Book an electrician</a>
           <a class="btn-outline" href="tel:+611300555247">Call now</a>
         </div>
       </div>
+      <aside class="hero-card" aria-label="Request service form">
+        <h3>Request Your Service</h3>
+        <p style="margin:0 0 10px;color:var(--muted)">Same-week scheduling for most jobs, with emergency call-outs 24/7.</p>
+        <form action="/quote" method="post">
+          <input name="name" placeholder="Full name" required aria-label="Full name" />
+          <input name="phone" placeholder="Phone" required aria-label="Phone" />
+          <input name="email" type="email" placeholder="Email" aria-label="Email" />
+          <input name="service" placeholder="Service needed" aria-label="Service needed" />
+          <textarea name="message" placeholder="Describe the issue" rows="4" aria-label="Describe the issue"></textarea>
+          <button class="btn" type="submit">Get my quote</button>
+        </form>
+      </aside>
     </div>
   </header>
-
-  <!-- CONTACT FORM -->
-  <section id="quote" class="section" style="padding-top:0">
-    <div class="container hero-card" aria-label="Request service form">
-      <h3 style="margin-top:0">Request Your Service</h3>
-      <p style="margin:0 0 16px;color:var(--muted)">Same-week scheduling for most jobs, with emergency call-outs 24/7.</p>
-      <form action="/quote" method="post">
-        <input name="first-name" placeholder="First name" required aria-label="First name" />
-        <input name="last-name" placeholder="Last name" required aria-label="Last name" />
-        <input name="phone" placeholder="Phone" required aria-label="Phone" />
-        <input name="email" type="email" placeholder="Email" aria-label="Email" />
-        <textarea name="message" placeholder="How can we help?" rows="4" aria-label="How can we help?"></textarea>
-        <button class="btn" type="submit">Get my free quote</button>
-      </form>
-    </div>
-  </section>
 
   <!-- PROMISE STRIP -->
   <section class="strip" aria-label="Trust promises">
@@ -340,7 +319,7 @@
   </section>
 
   <!-- CTA BAND -->
-  <section class="cta-band" id="cta">
+  <section class="cta-band" id="quote">
     <div class="container inner">
       <div>
         <h3>Ready for safe, reliable power?</h3>
