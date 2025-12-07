@@ -4,16 +4,16 @@
   <!-- BASIC SEO -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Apex Electrical - Residential & Commercial Electricians | Safety Inspections, Upgrades, Repairs</title>
-  <meta name="description" content="Apex Electrical provides residential and commercial electrical services including safety inspections, switchboard upgrades, lighting, and emergency repairs. Trusted, licensed, and insured. Get a free quote." />
-  <link rel="canonical" href="https://www.apexelectrical.example/" />
+  <title>Apex Electrical | Residential & Commercial Electricians | 24/7 Emergency Call-Outs</title>
+  <meta name="description" content="Apex Electrical keeps Australian homes and businesses powered safely: emergency call-outs, switchboard upgrades, EV chargers, lighting design, and safety checks. Upfront pricing and clean workmanship." />
+  <link rel="canonical" href="https://www.apexelectrical.example.au/" />
 
   <!-- OPEN GRAPH / TWITTER -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Apex Electrical - Trusted Electricians" />
-  <meta property="og:description" content="Licensed electricians for homes and businesses. Safety-first, on-time, upfront pricing. Get a free quote." />
-  <meta property="og:image" content="https://www.apexelectrical.example/assets/og-hero.jpg" />
-  <meta property="og:url" content="https://www.apexelectrical.example/" />
+  <meta property="og:description" content="Full-service electricians for Aussie homes and businesses. Emergency help, upgrades, and preventative maintenance." />
+  <meta property="og:image" content="https://www.apexelectrical.example.au/assets/og-hero.jpg" />
+  <meta property="og:url" content="https://www.apexelectrical.example.au/" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <!-- PERFORMANCE HINTS -->
@@ -22,17 +22,12 @@
 
   <style>
     :root{
-      --primary:#004085;
-      --accent:#ff6700;
-      --blue:#0056b3;
-      --text:#1c1d22;
+      --primary:#0c2f55;
+      --accent:#f27f0c;
+      --text:#1b2431;
       --muted:#5b6470;
       --bg:#ffffff;
-      --light:#f5f7fa;
-
-      /* hero grid controls */
-      --hero-gap: clamp(10px, 1.6vw, 20px);
-      --hero-pad: clamp(12px, 3vw, 42px);
+      --light:#f6f8fb;
     }
 
     /* RESET + BASE */
@@ -46,84 +41,73 @@
     /* NAV */
     nav{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid #e9eef3}
     .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
-    .brand{display:flex;align-items:center;gap:10px}
+    .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--primary)}
     .brand .mark{font-size:20px}
-    .brand .name{font-weight:800;color:#0b2c5a;letter-spacing:.3px}
     .brand .name span{color:var(--accent)}
     .nav-links{display:flex;gap:22px}
     .nav-links a{font-weight:600;color:#1e2a39}
     .nav-cta{display:flex;align-items:center;gap:16px}
-    .phone{font-weight:700;color:#153a7a;white-space:nowrap}
+    .phone{font-weight:700;color:var(--primary);white-space:nowrap}
     .btn,.btn-outline{border:0;border-radius:10px;padding:11px 18px;font-weight:800;cursor:pointer}
     .btn{background:var(--accent);color:#fff}
     .btn:hover{filter:brightness(1.05)}
     .btn-outline{background:#fff;border:2px solid var(--accent);color:var(--accent)}
     @media (max-width:880px){.nav-links,.phone{display:none}}
 
-    /* HERO 5x5 GRID */
-    .hero{
-      position:relative;min-height:85vh;padding:var(--hero-pad);
-      background:
-        linear-gradient(rgba(0,30,60,.72),rgba(0,30,60,.5)),
-        url('assets/HeroMain.png') center/cover no-repeat;
-      display:grid;gap:var(--hero-gap);
-      grid-template-columns:repeat(5, minmax(0,1fr));
-      grid-template-rows:repeat(5, minmax(0,1fr));
-      color:#fff;
-    }
-
-    /* review badges 3;1, 3;2, 3;3 */
-    .badge{
-      display:grid;grid-template-columns:40px 1fr;gap:10px 12px;align-items:center;
-      background:rgba(15,16,20,.92);padding:14px 16px;border-radius:14px;
-      box-shadow:0 8px 24px rgba(0,0,0,.35);min-width:230px;max-width:320px
-    }
-    .badge .logo{width:40px;height:40px;border-radius:8px;background:#fff;display:grid;place-items:center}
-    .badge .title{font-weight:800}
-    .stars{letter-spacing:2px}
-    .star{color:#ffc107}
-    .muted{opacity:.85;font-size:.9rem}
-    .badge.fb{grid-row:3;grid-column:1;align-self:center;justify-self:start}
-    .badge.gg{grid-row:3;grid-column:2;align-self:center;justify-self:start}
-    .badge.bbb{grid-row:3;grid-column:3;align-self:center;justify-self:start}
-
-    /* CTA 5;3 */
-    .btn-hero{
-      grid-row:5;grid-column:3;align-self:center;justify-self:center;
-      padding:16px 28px;border-radius:12px;border:0;cursor:pointer;
-      font-weight:900;text-transform:uppercase;letter-spacing:.4px;color:#fff;
-      background:linear-gradient(135deg,#2046ff,#001a7a);box-shadow:0 12px 28px rgba(0,0,0,.35)
-    }
-    .btn-hero:hover{transform:translateY(-2px);transition:transform .15s ease}
+    /* HERO */
+    .hero{position:relative;min-height:78vh;display:grid;align-items:center;background:url('assets/WebsiteHero.png') center/cover no-repeat;color:var(--text)}
+    .hero .container{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;padding:60px 20px;background:#fff;border-radius:18px;margin-top:30px;margin-bottom:30px;box-shadow:0 12px 40px rgba(0,0,0,.18)}
+    .hero-content h1{font-size:clamp(32px,4vw,48px);margin:0 0 14px;line-height:1.2;color:var(--primary);text-shadow:0 2px 12px rgba(255,255,255,.6)}
+    .hero-content p{max-width:640px;color:#314158;margin:0 0 16px;font-weight:600}
+    .hero-points{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:18px 0}
+    .pill{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:#eef2f8;color:#1f2a3d}
+    .review-badges{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+    .review-badge{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:12px;background:#2f3237;border:1px solid rgba(0,0,0,.12);color:#f7f9fb;font-weight:800;box-shadow:0 8px 20px rgba(0,0,0,.25)}
+    .review-badge small{display:block;font-weight:600;color:#d7dde6;line-height:1.35}
+    .review-badge .stars{color:#f5c344;letter-spacing:2px}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
+    .hero-card{background:#fff;color:var(--text);border-radius:16px;padding:18px;border:1px solid #e3e8ef;box-shadow:0 12px 32px rgba(0,0,0,.16)}
+    .hero-card h3{margin:0 0 8px;color:var(--primary)}
+    .hero-card form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    .hero-card input,.hero-card textarea{width:100%;padding:10px;border:1px solid #d7dfe8;border-radius:10px;font:inherit}
+    .hero-card textarea{grid-column:1/-1;resize:vertical}
+    .hero-card button{grid-column:1/-1}
+    @media (max-width:640px){.hero-card form{grid-template-columns:1fr}}
 
     /* PROMISE STRIP */
-    .strip{background:#0b2c5a;color:#fff}
-    .strip .container{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:18px 20px}
+    .strip{background:var(--primary);color:#fff}
+    .strip .container{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;padding:18px 20px}
     .strip .item{display:flex;gap:10px;align-items:center}
     .strip .item b{display:block}
-    @media (max-width:800px){.strip .container{grid-template-columns:1fr}}
+
+    /* SECTIONS */
+    .section{padding:70px 0}
+    .section h2{font-size:clamp(28px,3.2vw,40px);color:var(--primary);margin:0 0 14px}
+    .section p.lead{color:var(--muted);max-width:760px;margin:0 0 8px}
 
     /* SERVICES */
-    .section{padding:70px 0}
-    .section h2{font-size:clamp(28px,3.2vw,40px);color:#0b2c5a;margin:0 0 14px}
-    .section p.lead{color:var(--muted);max-width:760px}
     .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:28px}
     .card{background:#fff;border:1px solid #e9eef3;border-radius:14px;overflow:hidden;box-shadow:0 10px 20px rgba(0,0,0,.04)}
     .card img{aspect-ratio:16/10;object-fit:cover}
     .card .body{padding:16px}
-    .card .body h3{margin:0 0 6px;color:#0b2c5a}
+    .card .body h3{margin:0 0 6px;color:var(--primary)}
     .card .body a{color:var(--accent);font-weight:800}
+
+    /* WHY */
+    .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}
+    .why{padding:16px;border:1px solid #e4eaf1;border-radius:12px;background:#fff}
+    .why b{display:block;color:var(--primary);margin-bottom:6px}
 
     /* PROCESS */
     .process{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:22px}
-    .step{background:#0b2c5a;color:#fff;border-radius:12px;padding:18px}
+    .step{background:var(--primary);color:#fff;border-radius:12px;padding:18px}
     .step b{display:block;margin-bottom:6px}
 
-    /* GALLERY (Recent work) */
+    /* GALLERY */
     .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-top:18px}
     .gallery img{border-radius:12px;aspect-ratio:4/3;object-fit:cover}
 
-    /* SOCIAL PROOF / REVIEWS */
+    /* REVIEWS */
     .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:18px}
     .review{background:#fff;border:1px solid #e9eef3;border-radius:12px;padding:16px}
     .review b{display:block;margin-bottom:6px}
@@ -136,8 +120,13 @@
     /* FAQ */
     details{border:1px solid #dfe7ef;border-radius:12px;padding:12px 14px;background:#fff}
     details+details{margin-top:10px}
-    summary{cursor:pointer;font-weight:800;color:#0b2c5a}
+    summary{cursor:pointer;font-weight:800;color:var(--primary)}
     details p{margin-top:8px;color:#3b4552}
+
+    /* CTA BAND */
+    .cta-band{background:linear-gradient(135deg,#0c2f55,#0f4478);color:#fff;padding:36px 20px}
+    .cta-band .inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+    .cta-band h3{margin:0;font-size:clamp(24px,3vw,32px)}
 
     /* FOOTER */
     footer{background:#0b0f16;color:#b8c2cf}
@@ -147,15 +136,6 @@
     .footer-links a{display:block;padding:4px 0}
     .foot-bottom{border-top:1px solid #202734;padding:16px 20px;text-align:center}
     @media (max-width:900px){.footer-top{grid-template-columns:1fr}}
-
-    /* MOBILE ADJUSTMENTS FOR HERO GRID */
-    @media (max-width:720px){
-      .hero{grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(5, minmax(0,1fr))}
-      .badge.fb{grid-row:3;grid-column:1}
-      .badge.gg{grid-row:3;grid-column:2}
-      .badge.bbb{grid-row:3;grid-column:3}
-      .btn-hero{grid-row:5;grid-column:2}
-    }
   </style>
 </head>
 <body>
@@ -164,10 +144,11 @@
     <div class="nav-wrap container">
       <div class="brand" aria-label="Apex Electrical">
         <div class="mark" aria-hidden="true">⚡</div>
-        <div class="name">APEX <span>ELECTRICAL</span></div>
+        <div class="name">Apex <span>Electrical</span></div>
       </div>
       <div class="nav-links" role="menubar">
         <a href="#services" role="menuitem">Services</a>
+        <a href="#why" role="menuitem">Why Us</a>
         <a href="#process" role="menuitem">Our Process</a>
         <a href="#gallery" role="menuitem">Projects</a>
         <a href="#reviews" role="menuitem">Reviews</a>
@@ -175,177 +156,200 @@
         <a href="#faq" role="menuitem">FAQ</a>
       </div>
       <div class="nav-cta">
-        <div class="phone">📞 1300 SPARKIE</div>
-        <a class="btn" href="#quote">Get a Free Quote</a>
+        <div class="phone">📞 1300 555 247</div>
+        <a class="btn" href="#quote">Schedule Service</a>
       </div>
     </div>
   </nav>
 
-  <!-- HERO with 5x5 grid placements as requested -->
-  <header class="hero" role="banner" aria-label="Trusted electricians - hero">
-    <!-- 3;1 -->
-    <div class="badge fb" aria-label="Facebook reviews 4.9 based on 49 reviews">
-      <div class="logo" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="#1877F2" xmlns="http://www.w3.org/2000/svg"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.19 8.44 9.93v-7.03H8.9v-2.9h1.54V9.83c0-1.52.9-2.36 2.29-2.36.66 0 1.36.12 1.36.12v1.5h-.77c-.76 0-1 .47-1 .96v1.15h1.7l-.27 2.9h-1.43V22c4.78-.74 8.44-4.9 8.44-9.93z"/></svg>
-      </div>
-      <div>
-        <div class="title">Facebook</div>
-        <div><strong>4.9</strong> <span class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></span></div>
-        <div class="muted">Based on 49 reviews</div>
-      </div>
-    </div>
-    <!-- 3;2 -->
-    <div class="badge gg" aria-label="Google reviews 4.8 based on 38 reviews">
-      <div class="logo" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M12 11v2.9h4.9C16.5 16.9 14.5 18 12 18a6 6 0 1 1 0-12c1.6 0 3 .6 4.1 1.6l2-2A9 9 0 1 0 12 21c4.6 0 8.6-3.3 8.6-9 0-.6-.1-1.1-.2-1.6H12z"/></svg>
-      </div>
-      <div>
-        <div class="title">Google</div>
-        <div><strong>4.8</strong> <span class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></span></div>
-        <div class="muted">Based on 38 reviews</div>
-      </div>
-    </div>
-    <!-- 3;3 -->
-    <div class="badge bbb" aria-label="BBB A+ Accredited Business">
-      <div class="logo" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="22" height="22" rx="3" fill="#0A6FB6"/><rect x="5" y="6" width="12" height="10" rx="2" fill="#fff"/></svg>
-      </div>
-      <div>
-        <div class="title">A+ <span class="muted">Rating</span></div>
-        <div class="muted">Accredited Business</div>
+  <!-- HERO -->
+  <header class="hero" role="banner" aria-label="Electricians for homes and businesses">
+    <div class="container">
+      <div class="hero-content">
+        <h1>Reliable Electricians for Aussie Homes & Businesses</h1>
+        <p>We deliver fast help, tidy workmanship, and clear communication for every electrical job across NSW.</p>
+        <div class="hero-points" aria-label="Highlights">
+          <div class="pill">✅ 24/7 emergency dispatch</div>
+          <div class="pill">✅ Licensed, insured, and AS/NZS 3000 compliant</div>
+          <div class="pill">✅ Upfront pricing with written scope</div>
+          <div class="pill">✅ Serving Sydney Metro & surrounds</div>
+        </div>
+        <div class="review-badges" aria-label="Ratings and memberships">
+          <div class="review-badge" aria-label="Facebook rating">
+            📘
+            <div><div>Facebook</div><small class="stars">★★★★☆</small><small>4.9 • Based on 49 reviews</small></div>
+          </div>
+          <div class="review-badge" aria-label="Google rating">
+            🌐
+            <div><div>Google</div><small class="stars">★★★★☆</small><small>4.8 • Based on 38 reviews</small></div>
+          </div>
+          <div class="review-badge" aria-label="Accredited business rating">
+            🏆
+            <div><div>A+ Rating</div><small>Accredited business</small></div>
+          </div>
+        </div>
+        <div class="hero-actions">
+          <a class="btn" href="#quote">Book an electrician</a>
+          <a class="btn-outline" href="tel:+611300555247">Call now</a>
+        </div>
       </div>
     </div>
-    <!-- 5;3 CTA -->
-    <a href="#quote" class="btn-hero" aria-label="Get a free quote">Get a free quote</a>
   </header>
 
-  <!-- PROMISE STRIP - mirrors benchmark trust strip -->
+  <!-- CONTACT FORM -->
+  <section id="quote" class="section" style="padding-top:0">
+    <div class="container hero-card" aria-label="Request service form">
+      <h3 style="margin-top:0">Request Your Service</h3>
+      <p style="margin:0 0 16px;color:var(--muted)">Same-week scheduling for most jobs, with emergency call-outs 24/7.</p>
+      <form action="/quote" method="post">
+        <input name="first-name" placeholder="First name" required aria-label="First name" />
+        <input name="last-name" placeholder="Last name" required aria-label="Last name" />
+        <input name="phone" placeholder="Phone" required aria-label="Phone" />
+        <input name="email" type="email" placeholder="Email" aria-label="Email" />
+        <textarea name="message" placeholder="How can we help?" rows="4" aria-label="How can we help?"></textarea>
+        <button class="btn" type="submit">Get my free quote</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- PROMISE STRIP -->
   <section class="strip" aria-label="Trust promises">
     <div class="container">
-      <div class="item">🛡️ <div><b>Licensed & insured</b><span>All work to AS/NZS 3000</span></div></div>
-      <div class="item">⏱️ <div><b>On-time or we pay you</b><span>Clear arrival windows</span></div></div>
-      <div class="item">💬 <div><b>Upfront pricing</b><span>No surprises at the end</span></div></div>
+      <div class="item">🛡️ <div><b>Licensed & insured</b><span>All work to AS/NZS 3000 standards</span></div></div>
+      <div class="item">⏱️ <div><b>On-time arrivals</b><span>Clear scheduling windows</span></div></div>
+      <div class="item">💬 <div><b>Transparent pricing</b><span>No surprise add-ons</span></div></div>
+      <div class="item">🏆 <div><b>Service-first mindset</b><span>Service that puts your safety and schedule first</span></div></div>
     </div>
   </section>
 
   <!-- SERVICES -->
   <section id="services" class="section">
     <div class="container">
-      <h2>Residential & Commercial Electrical</h2>
-      <p class="lead">Focused service lines for quality delivery - inspections, repairs, upgrades, and installations done right.</p>
+      <h2>Core Electrical Services</h2>
+      <p class="lead">From preventative maintenance to emergency repairs, Apex Electrical keeps properties powered safely.</p>
       <div class="services" aria-label="Service categories">
         <article class="card">
-          <img src="assets/switchboard.png" alt="Modern switchboard with RCBOs" loading="lazy" width="640" height="400" />
+          <img src="assets/switchboard.png" alt="Modern electrical panel with safety switches" loading="lazy" width="640" height="400" />
           <div class="body">
-            <h3>Switchboard Upgrades</h3>
-            <p>Replace old fuses with RCBO safety switches and surge protection.</p>
-            <a href="#quote">Book inspection →</a>
+            <h3>Switchboard & Supply Upgrades</h3>
+            <p>Replace outdated boards, add capacity, install safety switches, and add surge protection that meets Australian standards.</p>
+            <a href="#quote">Book an upgrade →</a>
           </div>
         </article>
         <article class="card">
-          <img src="assets/lighting.png" alt="LED downlights in living room" loading="lazy" width="640" height="400" />
+          <img src="assets/lighting.png" alt="LED lighting installed in a modern living space" loading="lazy" width="640" height="400" />
           <div class="body">
-            <h3>LED Lighting & Fans</h3>
-            <p>Design, supply and install energy efficient lighting and ceiling fans.</p>
-            <a href="#quote">View options →</a>
+            <h3>Lighting Design & Install</h3>
+            <p>Interior, exterior, and security lighting that looks great and saves energy.</p>
+            <a href="#quote">Plan lighting →</a>
           </div>
         </article>
         <article class="card">
-          <img src="assets/repair.png" alt="Electrician repairing power point" loading="lazy" width="640" height="400" />
+          <img src="assets/repair.png" alt="Electrician repairing an outlet" loading="lazy" width="640" height="400" />
           <div class="body">
-            <h3>Power Points & Repairs</h3>
-            <p>Extra outlets, safety fixes, and neat remedial work.</p>
-            <a href="#quote">Book a repair →</a>
+            <h3>Repairs & Troubleshooting</h3>
+            <p>Breakers tripping, outlets sparking, or no power? We diagnose and fix fast.</p>
+            <a href="#quote">Fix an issue →</a>
           </div>
         </article>
         <article class="card">
-          <img src="assets/ev.png" alt="EV charger wall unit installation" loading="lazy" width="640" height="400" />
+          <img src="assets/HeroMain.png" alt="Electrician testing circuits" loading="lazy" width="640" height="400" />
           <div class="body">
-            <h3>EV Chargers</h3>
-            <p>Home and small business EV charging solutions with load control.</p>
-            <a href="#quote">Install EV charger →</a>
+            <h3>Safety Inspections</h3>
+            <p>Compliance checks, infrared scans, and reporting for real estate or facility teams.</p>
+            <a href="#quote">Schedule inspection →</a>
           </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- PROCESS - mirrors D&M style "we dominate two lines" with a simple 3-step -->
-  <section id="process" class="section" style="background:var(--light)">
+  <!-- WHY CHOOSE US -->
+  <section id="why" class="section" style="background:var(--light)">
+    <div class="container">
+      <h2>Why Property Owners Choose Apex Electrical</h2>
+      <p class="lead">We mirror the reliability and customer-first approach of Australia's best trades—just for electrical systems, and tailored to Aussie standards.</p>
+      <div class="why-grid" aria-label="Reasons to choose us">
+        <div class="why"><b>Local & responsive</b>Teams staged across Sydney, the North Shore, and the Inner West for fast dispatch.</div>
+        <div class="why"><b>Clean workmanship</b>Drop cloths, tidy cabling, labeled boards, and photo proof before handover.</div>
+        <div class="why"><b>Commercial & residential</b>Retail, strata, warehouses, and single-family homes.</div>
+        <div class="why"><b>Flexible payment</b>Payment options available for larger upgrades, EV chargers, and generators.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="section">
     <div class="container">
       <h2>How It Works</h2>
-      <p class="lead">Simple, transparent, accountable.</p>
+      <p class="lead">Simple steps so you always know what is happening next.</p>
       <div class="process" aria-label="Our process">
-        <div class="step"><b>1. Diagnose</b>We assess risks, compliance, and load. You get a clear scope and price.</div>
-        <div class="step"><b>2. Fix & Upgrade</b>Licensed work done to code with neat cabling and labelled circuits.</div>
-        <div class="step"><b>3. Verify</b>Testing, certification and photo proof supplied with your invoice.</div>
+        <div class="step"><b>1. Inspect & Diagnose</b>We assess risks, capacity, and code compliance so you know exactly what is needed.</div>
+        <div class="step"><b>2. Present Options</b>Clear recommendations with timelines and firm pricing for repairs or upgrades.</div>
+        <div class="step"><b>3. Complete & Verify</b>Work completed by licensed electricians, tested, and documented for your records.</div>
       </div>
     </div>
   </section>
 
-  <!-- GALLERY / RECENT PROJECTS -->
-  <section id="gallery" class="section">
+  <!-- GALLERY / PROJECTS -->
+  <section id="gallery" class="section" style="background:var(--light)">
     <div class="container">
-      <h2>Recent Projects</h2>
+      <h2>Recent Electrical Projects</h2>
       <div class="gallery" aria-label="Project gallery">
-        <img src="assets/g1.jpg" alt="Switchboard upgrade before and after" loading="lazy" width="600" height="450" />
-        <img src="assets/g2.jpg" alt="LED downlight installation" loading="lazy" width="600" height="450" />
-        <img src="assets/g3.jpg" alt="Warehouse lighting retrofit" loading="lazy" width="600" height="450" />
-        <img src="assets/g4.jpg" alt="EV charger on garage wall" loading="lazy" width="600" height="450" />
+        <img src="assets/switchboard.png" alt="Panel upgrade with labeled circuits" loading="lazy" width="600" height="450" />
+        <img src="assets/lighting.png" alt="Accent lighting installation" loading="lazy" width="600" height="450" />
+        <img src="assets/repair.png" alt="Outlet repair and testing" loading="lazy" width="600" height="450" />
       </div>
     </div>
   </section>
 
   <!-- REVIEWS -->
-  <section id="reviews" class="section" style="background:var(--light)">
+  <section id="reviews" class="section">
     <div class="container">
       <h2>What Clients Say</h2>
       <div class="reviews" aria-label="Customer reviews">
-        <blockquote class="review"><b>Sarah T.</b>Had Alex upgrade our old fuse box. On time, tidy, and patient explaining safety switches.</blockquote>
-        <blockquote class="review"><b>Michael D.</b>Fast fix on a tripping circuit. Pricing was fair and they cleaned up properly.</blockquote>
-        <blockquote class="review"><b>Jodie R.</b>Great lighting design for our reno. Night and day difference!</blockquote>
+        <blockquote class="review"><b>Sarah T.</b>"They treated our electrical emergency with urgency and respect—communication was spot on from first call to completion."</blockquote>
+        <blockquote class="review"><b>Michael D.</b>"Switchboard upgrade was neat and labelled. The team cleaned up before leaving and walked me through every change."</blockquote>
+        <blockquote class="review"><b>Jodie R.</b>"Lighting design transformed our office. Scheduling and updates were transparent the whole way."</blockquote>
       </div>
     </div>
   </section>
 
   <!-- SERVICE AREAS -->
-  <section id="areas" class="section">
+  <section id="areas" class="section" style="background:var(--light)">
     <div class="container">
       <h2>Service Areas</h2>
-      <p class="lead">Greater Metro - within 50 km of the CBD.</p>
+      <p class="lead">Proudly serving Sydney Metro, Central Coast, and nearby communities.</p>
       <nav class="areas" aria-label="Suburbs">
-        <a href="#quote">CBD</a><a href="#quote">Northern Suburbs</a><a href="#quote">Eastern Suburbs</a>
-        <a href="#quote">South</a><a href="#quote">West</a><a href="#quote">Hills District</a>
-        <a href="#quote">Inner West</a><a href="#quote">Bayside</a><a href="#quote">More…</a>
+        <a href="#quote">Sydney CBD</a><a href="#quote">Parramatta</a><a href="#quote">North Shore</a>
+        <a href="#quote">Inner West</a><a href="#quote">Eastern Suburbs</a><a href="#quote">Hills District</a>
+        <a href="#quote">Sutherland Shire</a><a href="#quote">Central Coast</a><a href="#quote">More…</a>
       </nav>
     </div>
   </section>
 
   <!-- FAQ -->
-  <section id="faq" class="section" style="background:var(--light)">
+  <section id="faq" class="section">
     <div class="container">
       <h2>FAQ</h2>
-      <details><summary>How can I trust the quality of your work?</summary><p>Licensed A-Grade electricians, insured, and we comply with AS/NZS 3000. Warranty on workmanship.</p></details>
-      <details><summary>Do you do commercial work?</summary><p>Yes - retail fitouts, offices, warehouses, compliance upgrades and maintenance.</p></details>
-      <details><summary>Can I get a firm price?</summary><p>Yes. After diagnosis we give a fixed, written price before work starts.</p></details>
-      <details><summary>Emergency help?</summary><p>Call 1300 SPARKIE. If there is fire, call 000 first. Do not touch damaged equipment.</p></details>
+      <details><summary>Do you offer emergency service?</summary><p>Yes. Call 1300 555 247 for 24/7 emergency electrical help. If there is fire or risk to life, dial 000 first.</p></details>
+      <details><summary>Can you help with commercial properties?</summary><p>Absolutely—retail, restaurants, offices, and industrial spaces. We coordinate with facility teams to minimize downtime.</p></details>
+      <details><summary>Do you pull permits?</summary><p>Yes. We handle compliance, certificates of electrical safety, and inspections for insurers or real estate transactions.</p></details>
+      <details><summary>What areas do you cover?</summary><p>Sydney Metro, Central Coast, Illawarra, and nearby regions with crews staged for quick response.</p></details>
     </div>
   </section>
 
-  <!-- QUOTE FORM / CTA -->
-  <section id="quote" class="section">
-    <div class="container">
-      <h2>Get Your Free Quote</h2>
-      <p class="lead">Tell us about the job. We will confirm a time window and send a licensed electrician.</p>
-      <form action="/quote" method="post" class="container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;max-width:960px;padding:0">
-        <input name="name" placeholder="Full name" required aria-label="Full name" />
-        <input name="phone" placeholder="Phone" required aria-label="Phone" />
-        <input name="email" type="email" placeholder="Email" aria-label="Email" />
-        <input name="suburb" placeholder="Suburb" aria-label="Suburb" />
-        <textarea name="message" placeholder="Describe the issue" rows="4" style="grid-column:1/-1"></textarea>
-        <button class="btn" type="submit">Submit</button>
-        <p style="grid-column:1/-1;color:#6b7280;font-size:.9rem">By submitting you agree to be contacted by Apex Electrical regarding your enquiry.</p>
-      </form>
+  <!-- CTA BAND -->
+  <section class="cta-band" id="cta">
+    <div class="container inner">
+      <div>
+        <h3>Ready for safe, reliable power?</h3>
+        <p style="margin:6px 0 0">Schedule now and we will confirm your time window today.</p>
+      </div>
+      <div class="hero-actions">
+        <a class="btn" href="tel:+611300555247">Call 1300 555 247</a>
+        <a class="btn-outline" href="#services">View services</a>
+      </div>
     </div>
   </section>
 
@@ -354,20 +358,20 @@
     <div class="container footer-top">
       <div class="footer-nap">
         <h4>Apex Electrical</h4>
-        <p>REC 555123 | ABN 12 345 678 910</p>
-        <p>Mon - Fri 7:00 - 17:00</p>
-        <p>📍 Greater Metropolitan Area</p>
-        <p>📞 1300 SPARKIE</p>
-        <p>✉️ admin@apexelectrical.com.au</p>
+        <p>Licensed | Insured | NSW</p>
+        <p>Mon - Fri 7:00 - 17:00 | Emergency after-hours</p>
+        <p>📍 Sydney Metro & Central Coast</p>
+        <p>📞 1300 555 247</p>
+        <p>✉️ service@apexelectrical.com.au</p>
       </div>
       <div>
         <h4>Quick Links</h4>
         <div class="footer-links">
           <a href="#services">Services</a>
+          <a href="#why">Why Us</a>
           <a href="#process">Our Process</a>
-          <a href="#gallery">Projects</a>
           <a href="#faq">FAQ</a>
-          <a href="#quote">Get a Quote</a>
+          <a href="#quote">Schedule Service</a>
         </div>
       </div>
       <div>
@@ -381,19 +385,19 @@
     <div class="foot-bottom">© 2025 Apex Electrical. All rights reserved.</div>
   </footer>
 
-  <!-- JSON-LD: LocalBusiness + AggregateRating (benchmarked from structure with reviews and service areas) -->
+  <!-- JSON-LD: LocalBusiness -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"LocalBusiness",
     "name":"Apex Electrical",
-    "image":"https://www.apexelectrical.example/assets/og-hero.jpg",
-    "telephone":"+61-1300-SPARKIE",
-    "email":"admin@apexelectrical.com.au",
-    "areaServed":"Greater Metropolitan Area",
-    "address":{"@type":"PostalAddress","addressRegion":"State","addressCountry":"AU"},
+    "image":"https://www.apexelectrical.example.au/assets/og-hero.jpg",
+    "telephone":"+61-1300-555-247",
+    "email":"service@apexelectrical.com.au",
+    "areaServed":"Sydney Metro and Central Coast",
+    "address":{"@type":"PostalAddress","addressRegion":"NSW","addressCountry":"AU"},
     "openingHours":"Mo-Fr 07:00-17:00",
-    "url":"https://www.apexelectrical.example/",
+    "url":"https://www.apexelectrical.example.au/",
     "sameAs":[
       "https://www.facebook.com/",
       "https://www.instagram.com/",
@@ -412,30 +416,23 @@
   }
   </script>
 
-  <!-- JSON-LD: Website w/ SearchAction -->
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebSite","url":"https://www.apxelectrical.example/","potentialAction":{"@type":"SearchAction","target":"https://www.apxelectrical.example/search?q={query}","query-input":"required name=query"}}
-  </script>
-
   <!-- JSON-LD: FAQPage -->
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
     "@type":"FAQPage",
     "mainEntity":[
-      {"@type":"Question","name":"How can I trust the quality of your work?","acceptedAnswer":{"@type":"Answer","text":"Licensed A-Grade electricians, insured, and we comply with AS/NZS 3000. Warranty on workmanship."}},
-      {"@type":"Question","name":"Do you do commercial work?","acceptedAnswer":{"@type":"Answer","text":"Yes, including retail fitouts, offices, warehouses, compliance upgrades and maintenance."}},
-      {"@type":"Question","name":"Can I get a firm price?","acceptedAnswer":{"@type":"Answer","text":"After diagnosis we provide a fixed, written price before work starts."}},
-      {"@type":"Question","name":"Emergency help?","acceptedAnswer":{"@type":"Answer","text":"Call 1300 SPARKIE. If there is fire, call 000 first. Do not touch damaged equipment."}}
+      {"@type":"Question","name":"Do you offer emergency service?","acceptedAnswer":{"@type":"Answer","text":"Yes. Call 1300 555 247 for 24/7 emergency electrical help. If there is fire or risk to life, dial 000 first."}},
+      {"@type":"Question","name":"Can you help with commercial properties?","acceptedAnswer":{"@type":"Answer","text":"Absolutely—retail, restaurants, offices, and industrial spaces with coordinated scheduling to reduce downtime."}},
+      {"@type":"Question","name":"Do you pull permits?","acceptedAnswer":{"@type":"Answer","text":"Yes. We handle compliance, certificates of electrical safety, and inspections for insurers or real estate transactions."}},
+      {"@type":"Question","name":"What areas do you cover?","acceptedAnswer":{"@type":"Answer","text":"Sydney Metro, Central Coast, Illawarra, and nearby regions with crews staged for quick response."}}
     ]
   }
   </script>
 
-  <!-- Minimal JS for details smooth scroll (no frameworks) -->
+  <!-- Minimal JS for smooth scroll -->
   <script>
-    // smooth scroll for internal anchor links
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
-      a.added=true;
       a.addEventListener('click',e=>{
         const id=a.getAttribute('href').slice(1);
         const el=document.getElementById(id);
