@@ -20,8 +20,8 @@
       --light:#f6f8fb;
 
       /* hero tuning */
-      --hero-zoom: 1;                    /* 1 = no zoom */
-      --hero-overlay: rgba(12,47,85,.35);/* lighter so image shows */
+      --hero-zoom: 1;
+      --hero-overlay: rgba(12,47,85,.35);
     }
 
     /* RESET + BASE */
@@ -53,8 +53,9 @@
     .hero::before{content:"";position:absolute;inset:0;background:var(--hero-overlay)}
     .hero .container{position:relative;z-index:1;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start;padding:60px 20px}
     .headline{grid-column:1/10}
-    .headline h1{font-size:clamp(32px,4vw,54px);margin:0 0 14px;line-height:1.12}
-    .headline p{max-width:680px;color:#e6ecf5;margin:0 0 16px}
+    .headline h1{font-size:clamp(32px,4vw,54px);margin:0;line-height:1.12}
+    .headline h1 + h1{margin-top:4px}
+    .headline p{max-width:680px;color:#e6ecf5;margin:14px 0 16px}
     .hero-points{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:18px 0}
     .pill{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.10)}
     .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}
@@ -87,31 +88,65 @@
       .fn,.ln,.email,.tel,.submit{grid-column:1/-1}
     }
 
-    /* STRIP + SECTIONS (unchanged) */
-    .strip{background:var(--primary);color:#fff}
-    .strip .container{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;padding:18px 20px}
-    .strip .item{display:flex;gap:10px;align-items:center}
+    /* REVIEW CAROUSEL */
+    .reviews-carousel.section{background:var(--light)}
+    .review-carousel{max-width:820px;margin:0 auto}
+    .review-carousel-header{text-align:center;margin-bottom:18px}
+    .review-carousel-header h2{font-size:clamp(26px,3vw,34px);color:var(--primary);margin:0 0 6px}
+    .review-carousel-header p{margin:0;color:var(--muted)}
+    .review-frame{position:relative;background:#fff;border-radius:16px;border:1px solid #e0e5ee;box-shadow:0 10px 30px rgba(0,0,0,.05);padding:22px 22px 26px}
+    .review-slide{display:none}
+    .review-slide.active{display:block}
+    .review-source{font-weight:800;color:var(--primary);margin-bottom:4px}
+    .review-rating{font-size:.95rem;margin-bottom:10px}
+    .review-rating .star{margin-right:2px}
+    .review-text{font-size:1rem;color:var(--text);margin-bottom:12px}
+    .review-author{font-weight:700}
+    .review-meta{font-size:.9rem;color:var(--muted)}
+    .review-controls{display:flex;justify-content:space-between;align-items:center;margin-top:16px}
+    .review-dots{display:flex;gap:6px}
+    .review-dot{width:8px;height:8px;border-radius:999px;background:#cfd5e0;border:none;padding:0}
+    .review-dot.active{width:18px;background:var(--accent)}
+    .review-arrow{border:none;background:transparent;color:var(--primary);font-weight:800;font-size:1.4rem;cursor:pointer}
+    .review-arrow:disabled{opacity:.4;cursor:default}
+
+    /* SECTIONS */
     .section{padding:70px 0}
     .section h2{font-size:clamp(28px,3.2vw,40px);color:var(--primary);margin:0 0 14px}
     .section p.lead{color:var(--muted);max-width:760px;margin:0 0 8px}
+
+    /* PROMISE STRIP */
+    .strip{background:var(--primary);color:#fff}
+    .strip .container{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;padding:18px 20px}
+    .strip .item{display:flex;gap:10px;align-items:center}
+
+    /* SERVICES */
     .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:28px}
     .card{background:#fff;border:1px solid #e9eef3;border-radius:14px;overflow:hidden;box-shadow:0 10px 20px rgba(0,0,0,.04)}
     .card img{aspect-ratio:16/10;object-fit:cover}
     .card .body{padding:16px}
     .card .body h3{margin:0 0 6px;color:var(--primary)}
     .card .body a{color:var(--accent);font-weight:800}
-    .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}
-    .why{padding:16px;border:1px solid #e4eaf1;border-radius:12px;background:#fff}
-    .process{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:22px}
-    .step{background:var(--primary);color:#fff;border-radius:12px;padding:18px}
-    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-top:18px}
-    .gallery img{border-radius:12px;aspect-ratio:4/3;object-fit:cover}
-    .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:18px}
-    .review{background:#fff;border:1px solid #e9eef3;border-radius:12px;padding:16px}
-    .areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:14px}
-    .areas a{display:block;padding:10px 12px;border:1px solid #dfe7ef;border-radius:10px;background:#fff}
+
+    /* FAQ */
+    #faq{background:var(--bg)}
+    details{border:1px solid #dfe7ef;border-radius:12px;padding:12px 14px;background:#fff}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;font-weight:800;color:var(--primary)}
+    details p{margin-top:8px;color:#3b4552}
+
+    /* STORY + TEAM */
+    .story-inner,.team-inner{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:32px;align-items:center}
+    .story-inner img,.team-inner img{border-radius:16px;box-shadow:0 12px 32px rgba(0,0,0,.12)}
+    @media (max-width:800px){
+      .story-inner,.team-inner{grid-template-columns:1fr}
+    }
+
+    /* CTA BAND */
     .cta-band{background:linear-gradient(135deg,#0c2f55,#0f4478);color:#fff;padding:36px 20px}
     .cta-band .inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
+
+    /* FOOTER */
     footer{background:#0b0f16;color:#b8c2cf}
     .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;padding:36px 20px}
     .footer-links a{display:block;padding:4px 0}
@@ -132,7 +167,7 @@
         <a href="#why" role="menuitem">Why Us</a>
         <a href="#process" role="menuitem">Our Process</a>
         <a href="#gallery" role="menuitem">Projects</a>
-        <a href="#reviews" role="menuitem">Reviews</a>
+        <a href="#reviews-carousel" role="menuitem">Reviews</a>
         <a href="#areas" role="menuitem">Service Areas</a>
         <a href="#faq" role="menuitem">FAQ</a>
       </div>
@@ -143,7 +178,7 @@
     </div>
   </nav>
 
-  <!-- HERO (lighter overlay, no zoom, badges restored) -->
+  <!-- HERO -->
   <header class="hero" role="banner" aria-label="Electricians for homes and businesses">
     <img class="hero-bg" src="assets/WebsiteHero1.png" alt="Electrician in front of modern home" />
     <div class="container">
@@ -154,9 +189,9 @@
 
         <div class="hero-points">
           <div class="pill">✅ 24/7 emergency dispatch</div>
-          <div class="pill">✅ Licensed & insured - AS/NZS 3000 compliant</div>
+          <div class="pill">✅ Licensed and insured - AS/NZS 3000 compliant</div>
           <div class="pill">✅ Upfront pricing with written scope</div>
-          <div class="pill">✅ Serving Sydney Metro & surrounds</div>
+          <div class="pill">✅ Serving Sydney Metro and surrounds</div>
         </div>
 
         <!-- Review badges -->
@@ -202,7 +237,7 @@
     </div>
   </header>
 
-  <!-- REQUEST SERVICE (under hero, simplified fields) -->
+  <!-- REQUEST SERVICE -->
   <section class="request" aria-label="Request service">
     <div class="container">
       <div class="card">
@@ -220,13 +255,156 @@
     </div>
   </section>
 
+  <!-- REVIEWS CAROUSEL -->
+  <section id="reviews-carousel" class="section reviews-carousel" aria-label="Customer reviews from Google and Facebook">
+    <div class="container">
+      <div class="review-carousel">
+        <div class="review-carousel-header">
+          <h2>What Our Customers Say</h2>
+          <p>Real feedback from local homeowners and businesses who trust Apex Electrical.</p>
+        </div>
+        <div class="review-frame">
+          <article class="review-slide active" data-index="0">
+            <div class="review-source">Google Review</div>
+            <div class="review-rating">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              <span>5.0 - Switchboard upgrade</span>
+            </div>
+            <p class="review-text">
+              Apex upgraded our old fuse box to a modern switchboard and explained every step in plain language.
+              The team arrived on time, protected the floors, and left the garage cleaner than they found it.
+              We feel a lot safer knowing the house now meets current standards.
+            </p>
+            <div class="review-author">Jessica P - Newcastle</div>
+            <div class="review-meta">Verified Google review</div>
+          </article>
+
+          <article class="review-slide" data-index="1">
+            <div class="review-source">Facebook Recommendation</div>
+            <div class="review-rating">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              <span>5.0 - Emergency call out</span>
+            </div>
+            <p class="review-text">
+              We lost power to half the house late on a Sunday. Apex answered the phone straight away,
+              talked us through some quick checks, then sent an electrician within the hour.
+              He found a damaged cable, made it safe, and followed up the next day with a permanent repair.
+            </p>
+            <div class="review-author">Mark and Talia S - Western Sydney</div>
+            <div class="review-meta">Facebook recommendation</div>
+          </article>
+
+          <article class="review-slide" data-index="2">
+            <div class="review-source">Google Review</div>
+            <div class="review-rating">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              <span>5.0 - Lighting and fans</span>
+            </div>
+            <p class="review-text">
+              We used Apex to replace old halogens with LEDs and install ceiling fans before summer.
+              The quoting process was transparent, they worked around our kids nap times,
+              and the finished result looks like a new home. Power bills are already lower.
+            </p>
+            <div class="review-author">Daniel K - Hills District</div>
+            <div class="review-meta">Verified Google review</div>
+          </article>
+
+          <div class="review-controls">
+            <button class="review-arrow" id="review-prev" aria-label="Previous review">‹</button>
+            <div class="review-dots" aria-label="Select review">
+              <button class="review-dot active" data-index="0"></button>
+              <button class="review-dot" data-index="1"></button>
+              <button class="review-dot" data-index="2"></button>
+            </div>
+            <button class="review-arrow" id="review-next" aria-label="Next review">›</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ (in depth for SEO and AIO) -->
+  <section id="faq" class="section" aria-label="Frequently asked questions">
+    <div class="container">
+      <h2>Electrical FAQ for Homeowners and Facility Managers</h2>
+      <p class="lead">Detailed answers to the most common questions we receive about safety, pricing, and how our service works.</p>
+
+      <details>
+        <summary>When should I call an emergency electrician instead of waiting for standard business hours?</summary>
+        <p>
+          Treat any situation that involves heat, smoke, burning smells, visible arcing, or repeated tripping of the main switch as urgent.
+          If you can see flames or there is immediate danger to people or property, call 000 first, then contact us on 1300 555 247.
+          For non life threatening issues such as partial loss of power, a hot switch, or repeated tripping of a single circuit,
+          turn the affected circuit off at the switchboard and call us for priority same day attendance.
+          Leaving faults unattended can damage appliances and increase fire risk, so it is safer to get advice as soon as you notice something unusual.
+        </p>
+      </details>
+
+      <details>
+        <summary>How do you price electrical work and what does upfront pricing mean?</summary>
+        <p>
+          Before we start any work, our electrician inspects the site, confirms the exact scope, and explains the available options.
+          You are given a clear written quote that includes labor, materials, and any required compliance certificates.
+          There are no call out surprises or hidden weekend multipliers added at the end.
+          If additional issues are discovered during the job, they are discussed and priced separately so you stay in control of the final invoice.
+          For larger projects such as full switchboard upgrades or commercial fit outs, we can break the work into staged options with separate line items.
+        </p>
+      </details>
+
+      <details>
+        <summary>What electrical work must be done by a licensed electrician in NSW?</summary>
+        <p>
+          In NSW, any fixed wiring work must be carried out by a licensed electrician working for a registered contractor.
+          This includes installing or relocating power points, lights, switches, ovens, hot water circuits, air conditioning circuits,
+          switchboard upgrades, EV chargers, and new circuits of any kind.
+          DIY work on fixed wiring is not only unsafe, it can void insurance and make it difficult to sell or lease a property later.
+          Simple tasks such as plugging in appliances, changing light bulbs, or resetting a safety switch are usually fine for owners to do,
+          but if you are ever unsure, it is safer to speak to a licensed professional before touching the switchboard.
+        </p>
+      </details>
+
+      <details>
+        <summary>How often should my home or business have an electrical safety check?</summary>
+        <p>
+          For residential properties, we recommend a comprehensive electrical safety check every five years, or before you purchase a home,
+          renovate, or add large new loads such as EV chargers or ducted air conditioning.
+          For businesses, strata buildings, and facilities with higher duty cycles, it is wise to schedule inspections every one to three years,
+          depending on usage and regulatory requirements.
+          Our safety checks include testing of safety switches, inspection of switchboards and earthing, sampling of outlets and lighting circuits,
+          and a documented report outlining any hazards, code issues, or energy saving opportunities.
+        </p>
+      </details>
+
+      <details>
+        <summary>Can you help with both residential and commercial electrical projects?</summary>
+        <p>
+          Yes. Apex Electrical supports single family homes, townhouses, strata complexes, retail stores, warehouses, offices, and light industrial sites.
+          We understand that households prioritise safety, comfort, and budget, while commercial clients often need staged works, after hours scheduling,
+          and integration with facility management plans.
+          Our team can coordinate with builders, strata managers, and other trades to minimise downtime and keep projects running to schedule.
+        </p>
+      </details>
+
+      <details>
+        <summary>What can I expect on the day of my appointment?</summary>
+        <p>
+          On the day of your booking, you receive an SMS or call when the electrician is on the way, along with a clear arrival window.
+          Our team arrives in uniform, carries ID, and walks through the job with you before any tools come out.
+          Drop sheets and shoe covers are used where required, and work areas are cleaned before we leave.
+          At completion, the electrician tests all circuits, demonstrates how any new equipment operates,
+          and emails certificates or compliance documents for your records.
+        </p>
+      </details>
+    </div>
+  </section>
+
   <!-- PROMISE STRIP -->
   <section class="strip" aria-label="Trust promises">
     <div class="container">
-      <div class="item">🛡️ <div><b>Licensed & insured</b><span>All work to AS/NZS 3000 standards</span></div></div>
-      <div class="item">⏱️ <div><b>On-time arrivals</b><span>Clear scheduling windows</span></div></div>
-      <div class="item">💬 <div><b>Transparent pricing</b><span>No surprise add-ons</span></div></div>
-      <div class="item">🏆 <div><b>Service-first mindset</b><span>Your safety and schedule first</span></div></div>
+      <div class="item">🛡️ <div><b>Licensed and insured</b><span>All work to AS/NZS 3000 standards</span></div></div>
+      <div class="item">⏱️ <div><b>On time arrivals</b><span>Clear scheduling windows</span></div></div>
+      <div class="item">💬 <div><b>Transparent pricing</b><span>No surprise add ons</span></div></div>
+      <div class="item">🏆 <div><b>Service first mindset</b><span>Your safety and schedule first</span></div></div>
     </div>
   </section>
 
@@ -239,7 +417,7 @@
         <article class="card">
           <img src="assets/switchboard.png" alt="Modern electrical panel with safety switches" loading="lazy" width="640" height="400" />
           <div class="body">
-            <h3>Switchboard & Supply Upgrades</h3>
+            <h3>Switchboard and Supply Upgrades</h3>
             <p>Replace outdated boards, add capacity, install safety switches, and surge protection to Australian standards.</p>
             <a href="#quote">Book an upgrade →</a>
           </div>
@@ -247,7 +425,7 @@
         <article class="card">
           <img src="assets/lighting.png" alt="LED lighting installed in a modern living space" loading="lazy" width="640" height="400" />
           <div class="body">
-            <h3>Lighting Design & Install</h3>
+            <h3>Lighting Design and Install</h3>
             <p>Interior, exterior, and security lighting that looks great and saves energy.</p>
             <a href="#quote">Plan lighting →</a>
           </div>
@@ -255,11 +433,61 @@
         <article class="card">
           <img src="assets/repair.png" alt="Electrician repairing an outlet" loading="lazy" width="640" height="400" />
           <div class="body">
-            <h3>Repairs & Troubleshooting</h3>
-            <p>Breakers tripping, outlets sparking, or no power? We diagnose and fix fast.</p>
+            <h3>Repairs and Troubleshooting</h3>
+            <p>Breakers tripping, outlets sparking, or no power? We diagnose and fix issues quickly and safely.</p>
             <a href="#quote">Fix an issue →</a>
           </div>
         </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORIGIN STORY -->
+  <section id="why" class="section" style="background:var(--light)" aria-label="Our story">
+    <div class="container story-inner">
+      <div>
+        <h2>The Apex Electrical Story</h2>
+        <p class="lead">A local business built around one simple goal - treat every home as if it were our own.</p>
+        <p>
+          Apex Electrical began when our founder saw too many families left in the dark by rushed jobs, poor communication,
+          and trades that never showed when they said they would. After more than a decade on the tools across residential,
+          commercial, and industrial sites, he decided to build a company that combined old fashioned manners with modern standards.
+        </p>
+        <p>
+          From day one we focused on three non negotiables: respect for your time, obsessive attention to safety, and workmanship
+          that still looks good ten years after we leave. That means clear quoting, honest advice, and electricians who take the
+          time to label boards, explain what has been done, and leave every work area clean and tidy.
+        </p>
+        <p>
+          Today Apex Electrical supports homes, strata buildings, and businesses across NSW, but the mindset has not changed.
+          We still answer the phone locally, we still send real electricians to assess your job, and we still measure success
+          by how confident and safe you feel when the power comes back on.
+        </p>
+      </div>
+      <div>
+        <img src="assets/founder.png" alt="Founder of Apex Electrical" />
+      </div>
+    </div>
+  </section>
+
+  <!-- MEET THE TEAM -->
+  <section id="team" class="section" aria-label="Meet the team">
+    <div class="container team-inner">
+      <div>
+        <h2>Meet the Team Keeping the Lights On</h2>
+        <p class="lead">Behind every neat switchboard and safely wired home is a crew that cares about the people inside it.</p>
+        <p>
+          Our electricians are fully licensed, police checked, and trained in both technical standards and customer care.
+          Apprentices learn on real jobs under close supervision, and our office team tracks every booking so you are never left wondering where your electrician is.
+          Weekly toolbox talks keep everyone up to date on safety practices, new technologies, and changes to Australian standards.
+        </p>
+        <p>
+          Whether you are calling about a single broken outlet or a major upgrade, you are dealing with a team that treats your time,
+          your property, and your safety with the same respect we want for our own families.
+        </p>
+      </div>
+      <div>
+        <img src="assets/team.png" alt="Apex Electrical team of electricians" />
       </div>
     </div>
   </section>
@@ -284,8 +512,8 @@
       <div>
         <h4>Apex Electrical</h4>
         <p>Licensed | Insured | NSW</p>
-        <p>Mon - Fri 7:00 - 17:00 | Emergency after-hours</p>
-        <p>📍 Sydney Metro & Central Coast</p>
+        <p>Mon - Fri 7:00 - 17:00 | Emergency after hours</p>
+        <p>📍 Sydney Metro and Central Coast</p>
         <p>📞 1300 555 247</p>
         <p>✉️ service@apexelectrical.com.au</p>
       </div>
@@ -293,8 +521,9 @@
         <h4>Quick Links</h4>
         <div class="footer-links">
           <a href="#services">Services</a>
-          <a href="#why">Why Us</a>
-          <a href="#process">Our Process</a>
+          <a href="#why">Our story</a>
+          <a href="#team">Meet the team</a>
+          <a href="#faq">FAQ</a>
           <a href="#quote">Schedule Service</a>
         </div>
       </div>
@@ -309,15 +538,42 @@
     <div class="foot-bottom">© 2025 Apex Electrical. All rights reserved.</div>
   </footer>
 
-  <!-- Smooth scroll -->
+  <!-- JS: smooth scroll + review carousel -->
   <script>
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click',e=>{
         const id=a.getAttribute('href').slice(1);
         const el=document.getElementById(id);
-        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}) }
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}); }
       });
     });
+
+    // Review carousel
+    (function(){
+      const slides = Array.from(document.querySelectorAll('.review-slide'));
+      const dots = Array.from(document.querySelectorAll('.review-dot'));
+      const prevBtn = document.getElementById('review-prev');
+      const nextBtn = document.getElementById('review-next');
+      if(!slides.length) return;
+
+      let index = 0;
+
+      function updateCarousel(newIndex){
+        index = (newIndex + slides.length) % slides.length;
+        slides.forEach((s,i)=>s.classList.toggle('active',i===index));
+        dots.forEach((d,i)=>d.classList.toggle('active',i===index));
+      }
+
+      prevBtn.addEventListener('click',()=>updateCarousel(index-1));
+      nextBtn.addEventListener('click',()=>updateCarousel(index+1));
+      dots.forEach(d=>{
+        d.addEventListener('click',()=>{
+          const i = Number(d.getAttribute('data-index'));
+          if(!isNaN(i)) updateCarousel(i);
+        });
+      });
+    })();
   </script>
 </body>
 </html>
