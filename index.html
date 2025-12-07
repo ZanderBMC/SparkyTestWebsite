@@ -5,20 +5,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Apex Electrical | Residential & Commercial Electricians | 24/7 Emergency Call-Outs</title>
-  <meta name="description" content="Apex Electrical keeps Australian homes and businesses powered safely: emergency call-outs, switchboard upgrades, EV chargers, lighting design, and safety checks. Upfront pricing and clean workmanship." />
-  <link rel="canonical" href="https://www.apexelectrical.example.au/" />
+  <meta name="description" content="Apex Electrical keeps Australian homes and businesses powered safely: emergency call-outs, switchboard upgrades, lighting, EV chargers, and safety checks. Upfront pricing and clean workmanship." />
 
-  <!-- OPEN GRAPH / TWITTER -->
-  <meta property="og:type" content="website" />
-  <meta property="og:title" content="Apex Electrical - Trusted Electricians" />
-  <meta property="og:description" content="Full-service electricians for Aussie homes and businesses. Emergency help, upgrades, and preventative maintenance." />
-  <meta property="og:image" content="https://www.apexelectrical.example.au/assets/og-hero.jpg" />
-  <meta property="og:url" content="https://www.apexelectrical.example.au/" />
-  <meta name="twitter:card" content="summary_large_image" />
-
-  <!-- PERFORMANCE HINTS -->
-  <link rel="preload" as="image" href="assets/HeroMain.png" imagesrcset="assets/HeroMain.png 1920w" imagesizes="100vw" />
-  <meta http-equiv="x-dns-prefetch-control" content="on" />
+  <!-- PERFORMANCE -->
+  <link rel="preload" as="image" href="assets/HeroMain.png" />
 
   <style>
     :root{
@@ -28,12 +18,16 @@
       --muted:#5b6470;
       --bg:#ffffff;
       --light:#f6f8fb;
+
+      /* hero tuning */
+      --hero-zoom: 1;                    /* 1 = no zoom */
+      --hero-overlay: rgba(12,47,85,.35);/* lighter so image shows */
     }
 
     /* RESET + BASE */
     *,*::before,*::after{box-sizing:border-box}
     html,body{margin:0;padding:0}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.55}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Helvetica Neue",Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.55}
     img{max-width:100%;height:auto;display:block}
     a{color:inherit;text-decoration:none}
     .container{max-width:1180px;margin:0 auto;padding:0 20px}
@@ -42,7 +36,6 @@
     nav{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid #e9eef3}
     .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
     .brand{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--primary)}
-    .brand .mark{font-size:20px}
     .brand .name span{color:var(--accent)}
     .nav-links{display:flex;gap:22px}
     .nav-links a{font-weight:600;color:#1e2a39}
@@ -55,81 +48,72 @@
     @media (max-width:880px){.nav-links,.phone{display:none}}
 
     /* HERO */
-    .hero{position:relative;min-height:78vh;display:grid;align-items:center;background:linear-gradient(120deg,rgba(12,47,85,.88),rgba(12,47,85,.72)),url('assets/WebsiteHero.png') center/cover no-repeat;color:#fff}
-    .hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.08),transparent 35%),radial-gradient(circle at 80% 0,rgba(255,255,255,.05),transparent 30%)}
-    .hero .container{position:relative;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px;padding:60px 20px}
-    .hero-content h1{font-size:clamp(32px,4vw,48px);margin:0 0 14px;line-height:1.2}
-    .hero-content p{max-width:640px;color:#e6ecf5;margin:0 0 16px}
-    .hero-points{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:18px 0}
-    .pill{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.08);backdrop-filter:blur(4px)}
-    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:12px}
-    .hero-card{background:#fff;color:var(--text);border-radius:16px;padding:18px;border:1px solid #e3e8ef;box-shadow:0 20px 60px rgba(0,0,0,.25)}
-    .hero-card h3{margin:0 0 8px;color:var(--primary)}
-    .hero-card form{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .hero-card input,.hero-card textarea{width:100%;padding:10px;border:1px solid #d7dfe8;border-radius:10px;font:inherit}
-    .hero-card textarea{grid-column:1/-1;resize:vertical}
-    .hero-card button{grid-column:1/-1}
-    @media (max-width:640px){.hero-card form{grid-template-columns:1fr}}
+    .hero{position:relative;min-height:82vh;color:#fff;display:grid;place-items:center;overflow:hidden}
+    .hero-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 45%;transform:scale(var(--hero-zoom))}
+    .hero::before{content:"";position:absolute;inset:0;background:var(--hero-overlay)}
+    .hero .container{position:relative;z-index:1;display:grid;grid-template-columns:repeat(12,1fr);gap:24px;align-items:start;padding:60px 20px}
+    .headline{grid-column:1/10}
+    .headline h1{font-size:clamp(32px,4vw,54px);margin:0 0 14px;line-height:1.12}
+    .headline p{max-width:680px;color:#e6ecf5;margin:0 0 16px}
+    .hero-points{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;margin:18px 0}
+    .pill{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:rgba(255,255,255,.10)}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}
 
-    /* PROMISE STRIP */
+    /* Review badges */
+    .badges{display:flex;flex-wrap:wrap;gap:14px;margin-top:16px}
+    .badge{display:grid;grid-template-columns:40px 1fr;gap:8px 10px;align-items:center;background:rgba(15,16,20,.92);padding:12px 14px;border-radius:12px;box-shadow:0 8px 22px rgba(0,0,0,.28)}
+    .badge .logo{width:40px;height:40px;border-radius:8px;background:#fff;display:grid;place-items:center}
+    .badge .title{font-weight:800}
+    .stars{letter-spacing:2px}
+    .star{color:#ffc107}
+    .muted{opacity:.85;font-size:.9rem}
+
+    /* REQUEST FORM (separate section under hero) */
+    .request{background:#fff}
+    .request .container{display:grid;grid-template-columns:repeat(12,1fr);gap:24px;padding:28px 20px}
+    .request .card{grid-column:1/-1;background:#fff;color:var(--text);border-radius:16px;padding:18px;border:1px solid #e3e8ef;box-shadow:0 8px 30px rgba(0,0,0,.08)}
+    .request .card h3{margin:0 0 8px;color:var(--primary)}
+    .request form{display:grid;grid-template-columns:repeat(12,1fr);gap:12px}
+    .request input,.request textarea{width:100%;padding:12px;border:1px solid #d7dfe8;border-radius:10px;font:inherit}
+    .request textarea{grid-column:1/-1;resize:vertical}
+    .fn{grid-column:1/7}
+    .ln{grid-column:7/13}
+    .email{grid-column:1/7}
+    .tel{grid-column:7/13}
+    .submit{grid-column:1/-1}
+    @media (max-width:720px){
+      .headline{grid-column:1/-1}
+      .request form{grid-template-columns:1fr}
+      .fn,.ln,.email,.tel,.submit{grid-column:1/-1}
+    }
+
+    /* STRIP + SECTIONS (unchanged) */
     .strip{background:var(--primary);color:#fff}
     .strip .container{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;padding:18px 20px}
     .strip .item{display:flex;gap:10px;align-items:center}
-    .strip .item b{display:block}
-
-    /* SECTIONS */
     .section{padding:70px 0}
     .section h2{font-size:clamp(28px,3.2vw,40px);color:var(--primary);margin:0 0 14px}
     .section p.lead{color:var(--muted);max-width:760px;margin:0 0 8px}
-
-    /* SERVICES */
     .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:28px}
     .card{background:#fff;border:1px solid #e9eef3;border-radius:14px;overflow:hidden;box-shadow:0 10px 20px rgba(0,0,0,.04)}
     .card img{aspect-ratio:16/10;object-fit:cover}
     .card .body{padding:16px}
     .card .body h3{margin:0 0 6px;color:var(--primary)}
     .card .body a{color:var(--accent);font-weight:800}
-
-    /* WHY */
     .why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}
     .why{padding:16px;border:1px solid #e4eaf1;border-radius:12px;background:#fff}
-    .why b{display:block;color:var(--primary);margin-bottom:6px}
-
-    /* PROCESS */
     .process{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:22px}
     .step{background:var(--primary);color:#fff;border-radius:12px;padding:18px}
-    .step b{display:block;margin-bottom:6px}
-
-    /* GALLERY */
     .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-top:18px}
     .gallery img{border-radius:12px;aspect-ratio:4/3;object-fit:cover}
-
-    /* REVIEWS */
     .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:18px}
     .review{background:#fff;border:1px solid #e9eef3;border-radius:12px;padding:16px}
-    .review b{display:block;margin-bottom:6px}
-
-    /* SERVICE AREAS */
     .areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:14px}
     .areas a{display:block;padding:10px 12px;border:1px solid #dfe7ef;border-radius:10px;background:#fff}
-    .areas a:hover{border-color:#cbd7e5}
-
-    /* FAQ */
-    details{border:1px solid #dfe7ef;border-radius:12px;padding:12px 14px;background:#fff}
-    details+details{margin-top:10px}
-    summary{cursor:pointer;font-weight:800;color:var(--primary)}
-    details p{margin-top:8px;color:#3b4552}
-
-    /* CTA BAND */
     .cta-band{background:linear-gradient(135deg,#0c2f55,#0f4478);color:#fff;padding:36px 20px}
     .cta-band .inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px}
-    .cta-band h3{margin:0;font-size:clamp(24px,3vw,32px)}
-
-    /* FOOTER */
     footer{background:#0b0f16;color:#b8c2cf}
     .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;padding:36px 20px}
-    .footer-top h4{color:#fff;margin:0 0 10px}
-    .footer-nap p{margin:6px 0}
     .footer-links a{display:block;padding:4px 0}
     .foot-bottom{border-top:1px solid #202734;padding:16px 20px;text-align:center}
     @media (max-width:900px){.footer-top{grid-template-columns:1fr}}
@@ -159,37 +143,81 @@
     </div>
   </nav>
 
-  <!-- HERO -->
+  <!-- HERO (lighter overlay, no zoom, badges restored) -->
   <header class="hero" role="banner" aria-label="Electricians for homes and businesses">
+    <img class="hero-bg" src="assets/HeroMain.png" alt="Electrician in front of modern home" />
     <div class="container">
-      <div class="hero-content">
+      <div class="headline">
         <h1>Reliable Electricians for Aussie Homes & Businesses</h1>
-        <p>We deliver fast help, tidy workmanship, and clear communication for every electrical job across NSW.</p>
-        <div class="hero-points" aria-label="Highlights">
+        <p>Fast help, tidy workmanship, and clear communication for every electrical job across NSW.</p>
+
+        <div class="hero-points">
           <div class="pill">✅ 24/7 emergency dispatch</div>
-          <div class="pill">✅ Licensed, insured, and AS/NZS 3000 compliant</div>
+          <div class="pill">✅ Licensed & insured - AS/NZS 3000 compliant</div>
           <div class="pill">✅ Upfront pricing with written scope</div>
           <div class="pill">✅ Serving Sydney Metro & surrounds</div>
         </div>
+
+        <!-- Review badges -->
+        <div class="badges" aria-label="Review badges">
+          <div class="badge" aria-label="Facebook reviews 4.9 based on 49 reviews">
+            <div class="logo" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="#1877F2" xmlns="http://www.w3.org/2000/svg"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.19 8.44 9.93v-7.03H8.9v-2.9h1.54V9.83c0-1.52.9-2.36 2.29-2.36.66 0 1.36.12 1.36.12v1.5h-.77c-.76 0-1 .47-1 .96v1.15h1.7l-.27 2.9h-1.43V22c4.78-.74 8.44-4.9 8.44-9.93z"/></svg>
+            </div>
+            <div>
+              <div class="title">Facebook</div>
+              <div><strong>4.9</strong> <span class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></span></div>
+              <div class="muted">Based on 49 reviews</div>
+            </div>
+          </div>
+
+          <div class="badge" aria-label="Google reviews 4.8 based on 38 reviews">
+            <div class="logo" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M12 11v2.9h4.9C16.5 16.9 14.5 18 12 18a6 6 0 1 1 0-12c1.6 0 3 .6 4.1 1.6l2-2A9 9 0 1 0 12 21c4.6 0 8.6-3.3 8.6-9 0-.6-.1-1.1-.2-1.6H12z"/></svg>
+            </div>
+            <div>
+              <div class="title">Google</div>
+              <div><strong>4.8</strong> <span class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></span></div>
+              <div class="muted">Based on 38 reviews</div>
+            </div>
+          </div>
+
+          <div class="badge" aria-label="BBB A+ Accredited Business">
+            <div class="logo" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="22" height="22" rx="3" fill="#0A6FB6"/><rect x="5" y="6" width="12" height="10" rx="2" fill="#fff"/></svg>
+            </div>
+            <div>
+              <div class="title">A+ <span class="muted">Rating</span></div>
+              <div class="muted">Accredited Business</div>
+            </div>
+          </div>
+        </div>
+
         <div class="hero-actions">
           <a class="btn" href="#quote">Book an electrician</a>
           <a class="btn-outline" href="tel:+611300555247">Call now</a>
         </div>
       </div>
-      <aside class="hero-card" aria-label="Request service form">
+    </div>
+  </header>
+
+  <!-- REQUEST SERVICE (under hero, simplified fields) -->
+  <section class="request" aria-label="Request service">
+    <div class="container">
+      <div class="card">
         <h3>Request Your Service</h3>
         <p style="margin:0 0 10px;color:var(--muted)">Same-week scheduling for most jobs, with emergency call-outs 24/7.</p>
         <form action="/quote" method="post">
-          <input name="name" placeholder="Full name" required aria-label="Full name" />
-          <input name="phone" placeholder="Phone" required aria-label="Phone" />
-          <input name="email" type="email" placeholder="Email" aria-label="Email" />
-          <input name="service" placeholder="Service needed" aria-label="Service needed" />
-          <textarea name="message" placeholder="Describe the issue" rows="4" aria-label="Describe the issue"></textarea>
-          <button class="btn" type="submit">Get my quote</button>
+          <input class="fn" name="first_name" placeholder="First name" required aria-label="First name" />
+          <input class="ln" name="last_name" placeholder="Last name" required aria-label="Last name" />
+          <input class="email" name="email" type="email" placeholder="Email" required aria-label="Email" />
+          <input class="tel" name="phone" placeholder="Phone" required aria-label="Phone" />
+          <textarea name="message" placeholder="How can we help?" rows="4" aria-label="How can we help?"></textarea>
+          <button class="btn submit" type="submit">Get my free quote</button>
         </form>
-      </aside>
+      </div>
     </div>
-  </header>
+  </section>
 
   <!-- PROMISE STRIP -->
   <section class="strip" aria-label="Trust promises">
@@ -197,7 +225,7 @@
       <div class="item">🛡️ <div><b>Licensed & insured</b><span>All work to AS/NZS 3000 standards</span></div></div>
       <div class="item">⏱️ <div><b>On-time arrivals</b><span>Clear scheduling windows</span></div></div>
       <div class="item">💬 <div><b>Transparent pricing</b><span>No surprise add-ons</span></div></div>
-      <div class="item">🏆 <div><b>Service-first mindset</b><span>Service that puts your safety and schedule first</span></div></div>
+      <div class="item">🏆 <div><b>Service-first mindset</b><span>Your safety and schedule first</span></div></div>
     </div>
   </section>
 
@@ -211,7 +239,7 @@
           <img src="assets/switchboard.png" alt="Modern electrical panel with safety switches" loading="lazy" width="640" height="400" />
           <div class="body">
             <h3>Switchboard & Supply Upgrades</h3>
-            <p>Replace outdated boards, add capacity, install safety switches, and add surge protection that meets Australian standards.</p>
+            <p>Replace outdated boards, add capacity, install safety switches, and surge protection to Australian standards.</p>
             <a href="#quote">Book an upgrade →</a>
           </div>
         </article>
@@ -231,90 +259,7 @@
             <a href="#quote">Fix an issue →</a>
           </div>
         </article>
-        <article class="card">
-          <img src="assets/HeroMain.png" alt="Electrician testing circuits" loading="lazy" width="640" height="400" />
-          <div class="body">
-            <h3>Safety Inspections</h3>
-            <p>Compliance checks, infrared scans, and reporting for real estate or facility teams.</p>
-            <a href="#quote">Schedule inspection →</a>
-          </div>
-        </article>
       </div>
-    </div>
-  </section>
-
-  <!-- WHY CHOOSE US -->
-  <section id="why" class="section" style="background:var(--light)">
-    <div class="container">
-      <h2>Why Property Owners Choose Apex Electrical</h2>
-      <p class="lead">We mirror the reliability and customer-first approach of Australia's best trades—just for electrical systems, and tailored to Aussie standards.</p>
-      <div class="why-grid" aria-label="Reasons to choose us">
-        <div class="why"><b>Local & responsive</b>Teams staged across Sydney, the North Shore, and the Inner West for fast dispatch.</div>
-        <div class="why"><b>Clean workmanship</b>Drop cloths, tidy cabling, labeled boards, and photo proof before handover.</div>
-        <div class="why"><b>Commercial & residential</b>Retail, strata, warehouses, and single-family homes.</div>
-        <div class="why"><b>Flexible payment</b>Payment options available for larger upgrades, EV chargers, and generators.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PROCESS -->
-  <section id="process" class="section">
-    <div class="container">
-      <h2>How It Works</h2>
-      <p class="lead">Simple steps so you always know what is happening next.</p>
-      <div class="process" aria-label="Our process">
-        <div class="step"><b>1. Inspect & Diagnose</b>We assess risks, capacity, and code compliance so you know exactly what is needed.</div>
-        <div class="step"><b>2. Present Options</b>Clear recommendations with timelines and firm pricing for repairs or upgrades.</div>
-        <div class="step"><b>3. Complete & Verify</b>Work completed by licensed electricians, tested, and documented for your records.</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY / PROJECTS -->
-  <section id="gallery" class="section" style="background:var(--light)">
-    <div class="container">
-      <h2>Recent Electrical Projects</h2>
-      <div class="gallery" aria-label="Project gallery">
-        <img src="assets/switchboard.png" alt="Panel upgrade with labeled circuits" loading="lazy" width="600" height="450" />
-        <img src="assets/lighting.png" alt="Accent lighting installation" loading="lazy" width="600" height="450" />
-        <img src="assets/repair.png" alt="Outlet repair and testing" loading="lazy" width="600" height="450" />
-      </div>
-    </div>
-  </section>
-
-  <!-- REVIEWS -->
-  <section id="reviews" class="section">
-    <div class="container">
-      <h2>What Clients Say</h2>
-      <div class="reviews" aria-label="Customer reviews">
-        <blockquote class="review"><b>Sarah T.</b>"They treated our electrical emergency with urgency and respect—communication was spot on from first call to completion."</blockquote>
-        <blockquote class="review"><b>Michael D.</b>"Switchboard upgrade was neat and labelled. The team cleaned up before leaving and walked me through every change."</blockquote>
-        <blockquote class="review"><b>Jodie R.</b>"Lighting design transformed our office. Scheduling and updates were transparent the whole way."</blockquote>
-      </div>
-    </div>
-  </section>
-
-  <!-- SERVICE AREAS -->
-  <section id="areas" class="section" style="background:var(--light)">
-    <div class="container">
-      <h2>Service Areas</h2>
-      <p class="lead">Proudly serving Sydney Metro, Central Coast, and nearby communities.</p>
-      <nav class="areas" aria-label="Suburbs">
-        <a href="#quote">Sydney CBD</a><a href="#quote">Parramatta</a><a href="#quote">North Shore</a>
-        <a href="#quote">Inner West</a><a href="#quote">Eastern Suburbs</a><a href="#quote">Hills District</a>
-        <a href="#quote">Sutherland Shire</a><a href="#quote">Central Coast</a><a href="#quote">More…</a>
-      </nav>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section id="faq" class="section">
-    <div class="container">
-      <h2>FAQ</h2>
-      <details><summary>Do you offer emergency service?</summary><p>Yes. Call 1300 555 247 for 24/7 emergency electrical help. If there is fire or risk to life, dial 000 first.</p></details>
-      <details><summary>Can you help with commercial properties?</summary><p>Absolutely—retail, restaurants, offices, and industrial spaces. We coordinate with facility teams to minimize downtime.</p></details>
-      <details><summary>Do you pull permits?</summary><p>Yes. We handle compliance, certificates of electrical safety, and inspections for insurers or real estate transactions.</p></details>
-      <details><summary>What areas do you cover?</summary><p>Sydney Metro, Central Coast, Illawarra, and nearby regions with crews staged for quick response.</p></details>
     </div>
   </section>
 
@@ -335,7 +280,7 @@
   <!-- FOOTER -->
   <footer role="contentinfo">
     <div class="container footer-top">
-      <div class="footer-nap">
+      <div>
         <h4>Apex Electrical</h4>
         <p>Licensed | Insured | NSW</p>
         <p>Mon - Fri 7:00 - 17:00 | Emergency after-hours</p>
@@ -349,7 +294,6 @@
           <a href="#services">Services</a>
           <a href="#why">Why Us</a>
           <a href="#process">Our Process</a>
-          <a href="#faq">FAQ</a>
           <a href="#quote">Schedule Service</a>
         </div>
       </div>
@@ -364,52 +308,7 @@
     <div class="foot-bottom">© 2025 Apex Electrical. All rights reserved.</div>
   </footer>
 
-  <!-- JSON-LD: LocalBusiness -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"Apex Electrical",
-    "image":"https://www.apexelectrical.example.au/assets/og-hero.jpg",
-    "telephone":"+61-1300-555-247",
-    "email":"service@apexelectrical.com.au",
-    "areaServed":"Sydney Metro and Central Coast",
-    "address":{"@type":"PostalAddress","addressRegion":"NSW","addressCountry":"AU"},
-    "openingHours":"Mo-Fr 07:00-17:00",
-    "url":"https://www.apexelectrical.example.au/",
-    "sameAs":[
-      "https://www.facebook.com/",
-      "https://www.instagram.com/",
-      "https://www.google.com/"
-    ],
-    "priceRange":"$$",
-    "aggregateRating":{
-      "@type":"AggregateRating",
-      "ratingValue":"4.9",
-      "reviewCount":"87"
-    },
-    "department":[
-      {"@type":"LocalBusiness","name":"Residential Electrical"},
-      {"@type":"LocalBusiness","name":"Commercial Electrical"}
-    ]
-  }
-  </script>
-
-  <!-- JSON-LD: FAQPage -->
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"FAQPage",
-    "mainEntity":[
-      {"@type":"Question","name":"Do you offer emergency service?","acceptedAnswer":{"@type":"Answer","text":"Yes. Call 1300 555 247 for 24/7 emergency electrical help. If there is fire or risk to life, dial 000 first."}},
-      {"@type":"Question","name":"Can you help with commercial properties?","acceptedAnswer":{"@type":"Answer","text":"Absolutely—retail, restaurants, offices, and industrial spaces with coordinated scheduling to reduce downtime."}},
-      {"@type":"Question","name":"Do you pull permits?","acceptedAnswer":{"@type":"Answer","text":"Yes. We handle compliance, certificates of electrical safety, and inspections for insurers or real estate transactions."}},
-      {"@type":"Question","name":"What areas do you cover?","acceptedAnswer":{"@type":"Answer","text":"Sydney Metro, Central Coast, Illawarra, and nearby regions with crews staged for quick response."}}
-    ]
-  }
-  </script>
-
-  <!-- Minimal JS for smooth scroll -->
+  <!-- Smooth scroll -->
   <script>
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click',e=>{
