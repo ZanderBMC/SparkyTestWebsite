@@ -1,401 +1,447 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- BASIC SEO -->
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Apex Electrical Solutions | Trusted Aussie Sparkies</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Apex Electrical - Residential & Commercial Electricians | Safety Inspections, Upgrades, Repairs</title>
+  <meta name="description" content="Apex Electrical provides residential and commercial electrical services including safety inspections, switchboard upgrades, lighting, and emergency repairs. Trusted, licensed, and insured. Get a free quote." />
+  <link rel="canonical" href="https://www.apexelectrical.example/" />
+
+  <!-- OPEN GRAPH / TWITTER -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Apex Electrical - Trusted Electricians" />
+  <meta property="og:description" content="Licensed electricians for homes and businesses. Safety-first, on-time, upfront pricing. Get a free quote." />
+  <meta property="og:image" content="https://www.apexelectrical.example/assets/og-hero.jpg" />
+  <meta property="og:url" content="https://www.apexelectrical.example/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- PERFORMANCE HINTS -->
+  <link rel="preload" as="image" href="assets/HeroMain.png" imagesrcset="assets/HeroMain.png 1920w" imagesizes="100vw" />
+  <meta http-equiv="x-dns-prefetch-control" content="on" />
+
   <style>
     :root{
-      --primary-blue:#004085;
-      --electric-blue:#0056b3;
-      --safety-orange:#ff6700;
-      --light-grey:#f4f6f8;
-      --text-dark:#333;
-      --white:#fff;
+      --primary:#004085;
+      --accent:#ff6700;
+      --blue:#0056b3;
+      --text:#1c1d22;
+      --muted:#5b6470;
+      --bg:#ffffff;
+      --light:#f5f7fa;
 
-      /* hero spacing */
-      --hero-gap: clamp(10px, 1.8vw, 18px);
-      --hero-pad: clamp(12px, 3vw, 40px);
+      /* hero grid controls */
+      --hero-gap: clamp(10px, 1.6vw, 20px);
+      --hero-pad: clamp(12px, 3vw, 42px);
     }
 
-    *{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;}
-    body{color:var(--text-dark);line-height:1.6;background-color:var(--white);}
-    a{text-decoration:none;color:inherit;}
-    ul{list-style:none;}
+    /* RESET + BASE */
+    *,*::before,*::after{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,'Helvetica Neue',Arial,sans-serif;color:var(--text);background:var(--bg);line-height:1.55}
+    img{max-width:100%;height:auto;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1180px;margin:0 auto;padding:0 20px}
 
     /* NAV */
-    nav{
-      background:var(--white);
-      box-shadow:0 2px 10px rgba(0,0,0,.1);
-      position:sticky;top:0;z-index:1000;
-      padding:15px 5%;
-      display:flex;justify-content:space-between;align-items:center;
-    }
-    .brand{display:flex;align-items:center;gap:10px;}
-    .brand .logo-mark{font-size:1.4rem}
-    .brand .logo-text{font-size:1.5rem;font-weight:800;color:var(--primary-blue);}
-    .brand .logo-text span{color:var(--safety-orange);}
-    .nav-links{display:flex;gap:30px;font-weight:600;}
-    .nav-links a:hover{color:var(--electric-blue);}
-    .nav-cta{display:flex;align-items:center;gap:20px;}
-    .phone-number{font-weight:700;color:var(--primary-blue);font-size:1.1rem;}
-    .btn{background:var(--safety-orange);color:#fff;padding:12px 25px;border-radius:6px;font-weight:700;transition:.2s;cursor:pointer;border:none;}
-    .btn:hover{filter:brightness(1.05);transform:translateY(-1px);}
+    nav{position:sticky;top:0;z-index:1000;background:#fff;border-bottom:1px solid #e9eef3}
+    .nav-wrap{display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
+    .brand{display:flex;align-items:center;gap:10px}
+    .brand .mark{font-size:20px}
+    .brand .name{font-weight:800;color:#0b2c5a;letter-spacing:.3px}
+    .brand .name span{color:var(--accent)}
+    .nav-links{display:flex;gap:22px}
+    .nav-links a{font-weight:600;color:#1e2a39}
+    .nav-cta{display:flex;align-items:center;gap:16px}
+    .phone{font-weight:700;color:#153a7a;white-space:nowrap}
+    .btn,.btn-outline{border:0;border-radius:10px;padding:11px 18px;font-weight:800;cursor:pointer}
+    .btn{background:var(--accent);color:#fff}
+    .btn:hover{filter:brightness(1.05)}
+    .btn-outline{background:#fff;border:2px solid var(--accent);color:var(--accent)}
+    @media (max-width:880px){.nav-links,.phone{display:none}}
 
-    /* HERO with 5x5 grid overlay */
+    /* HERO 5x5 GRID */
     .hero{
-      min-height:85vh;
-      position:relative;
-      padding:var(--hero-pad);
+      position:relative;min-height:85vh;padding:var(--hero-pad);
       background:
-        linear-gradient(rgba(0,30,60,.70),rgba(0,30,60,.50)),
-        url('assets/WebsiteHero.png');
-      background-size:cover;background-position:center;
-      display:grid;
-      grid-template-columns: repeat(5, minmax(0, 1fr));
-      grid-template-rows: repeat(5, minmax(0, 1fr));
-      gap: var(--hero-gap);
+        linear-gradient(rgba(0,30,60,.72),rgba(0,30,60,.5)),
+        url('assets/HeroMain.png') center/cover no-repeat;
+      display:grid;gap:var(--hero-gap);
+      grid-template-columns:repeat(5, minmax(0,1fr));
+      grid-template-rows:repeat(5, minmax(0,1fr));
+      color:#fff;
     }
 
-    /* Grid items - badges and CTA */
+    /* review badges 3;1, 3;2, 3;3 */
     .badge{
-      align-self:center; /* vertically center within its cell */
-      justify-self:start; /* left align inside its cell */
-      display:grid;
-      grid-template-columns:40px 1fr;
-      gap:10px 12px;align-items:center;
-      background:rgba(25,25,28,.92);color:#fff;
-      padding:14px 16px;border-radius:12px;
-      box-shadow:0 6px 18px rgba(0,0,0,.25);
-      min-width:230px; max-width:320px;
+      display:grid;grid-template-columns:40px 1fr;gap:10px 12px;align-items:center;
+      background:rgba(15,16,20,.92);padding:14px 16px;border-radius:14px;
+      box-shadow:0 8px 24px rgba(0,0,0,.35);min-width:230px;max-width:320px
     }
-    .badge .logo{width:40px;height:40px;border-radius:8px;display:grid;place-items:center;background:#fff;}
-    .badge .title{font-weight:700;line-height:1;}
-    .badge .subtitle{opacity:.85;font-size:.9rem;line-height:1.2;}
-    .stars{letter-spacing:2px;}
-    .star{color:#ffc107;}
-    .muted{opacity:.85;}
+    .badge .logo{width:40px;height:40px;border-radius:8px;background:#fff;display:grid;place-items:center}
+    .badge .title{font-weight:800}
+    .stars{letter-spacing:2px}
+    .star{color:#ffc107}
+    .muted{opacity:.85;font-size:.9rem}
+    .badge.fb{grid-row:3;grid-column:1;align-self:center;justify-self:start}
+    .badge.gg{grid-row:3;grid-column:2;align-self:center;justify-self:start}
+    .badge.bbb{grid-row:3;grid-column:3;align-self:center;justify-self:start}
 
-    /* explicit placement: row;col -> grid-row / grid-column */
-    .badge.fb   { grid-row: 3; grid-column: 1; }
-    .badge.gg   { grid-row: 3; grid-column: 2; }
-    .badge.bbb  { grid-row: 3; grid-column: 3; }
-
-    .btn-gradient{
-      grid-row: 5; grid-column: 3;        /* 5;3 as requested */
-      align-self:center; justify-self:center;
-      padding:16px 28px;font-weight:900;letter-spacing:.5px;
-      border-radius:10px;border:none;cursor:pointer;color:#fff;
-      background:linear-gradient(135deg,#1b42ff,#001b7a);
-      box-shadow:0 10px 24px rgba(0,0,0,.35);
-      transition:transform .15s ease,filter .15s ease;
-      text-transform:uppercase;
+    /* CTA 5;3 */
+    .btn-hero{
+      grid-row:5;grid-column:3;align-self:center;justify-self:center;
+      padding:16px 28px;border-radius:12px;border:0;cursor:pointer;
+      font-weight:900;text-transform:uppercase;letter-spacing:.4px;color:#fff;
+      background:linear-gradient(135deg,#2046ff,#001a7a);box-shadow:0 12px 28px rgba(0,0,0,.35)
     }
-    .btn-gradient:hover{transform:translateY(-2px);filter:brightness(1.03);}
+    .btn-hero:hover{transform:translateY(-2px);transition:transform .15s ease}
+
+    /* PROMISE STRIP */
+    .strip{background:#0b2c5a;color:#fff}
+    .strip .container{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding:18px 20px}
+    .strip .item{display:flex;gap:10px;align-items:center}
+    .strip .item b{display:block}
+    @media (max-width:800px){.strip .container{grid-template-columns:1fr}}
 
     /* SERVICES */
-    .services{padding:80px 10%;background:var(--white);text-align:center;}
-    .section-header h2{color:var(--primary-blue);font-size:2.5rem;margin-bottom:15px;}
-    .section-header p{max-width:600px;margin:0 auto 50px auto;color:#666;}
-    .service-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:30px;}
-    .service-card{background:#fff;border-radius:8px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,.08);transition:.3s;text-align:left;border:1px solid #eee;}
-    .service-card:hover{transform:translateY(-5px);box-shadow:0 10px 20px rgba(0,0,0,.15);}
-    .service-card img{width:100%;height:250px;object-fit:cover;}
-    .card-content{padding:25px;}
-    .card-content h3{color:var(--primary-blue);margin-bottom:10px;}
-    .card-content a{color:var(--safety-orange);font-weight:700;margin-top:15px;display:inline-block;}
+    .section{padding:70px 0}
+    .section h2{font-size:clamp(28px,3.2vw,40px);color:#0b2c5a;margin:0 0 14px}
+    .section p.lead{color:var(--muted);max-width:760px}
+    .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:22px;margin-top:28px}
+    .card{background:#fff;border:1px solid #e9eef3;border-radius:14px;overflow:hidden;box-shadow:0 10px 20px rgba(0,0,0,.04)}
+    .card img{aspect-ratio:16/10;object-fit:cover}
+    .card .body{padding:16px}
+    .card .body h3{margin:0 0 6px;color:#0b2c5a}
+    .card .body a{color:var(--accent);font-weight:800}
 
-    /* WHY US */
-    .why-us{
-      padding:80px 10%;
-      background:linear-gradient(rgba(255,255,255,.95),rgba(255,255,255,.95)),url('assets/texture.png');
-      background-size:cover;border-top:5px solid var(--safety-orange);
-    }
-    .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:40px;margin-top:40px;}
-    .feature-item h3{color:var(--primary-blue);margin-bottom:10px;}
-    .feature-item p{font-size:.95rem;}
+    /* PROCESS */
+    .process{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:22px}
+    .step{background:#0b2c5a;color:#fff;border-radius:12px;padding:18px}
+    .step b{display:block;margin-bottom:6px}
 
-    /* TESTIMONIALS */
-    .testimonials{padding:80px 10%;background:var(--light-grey);text-align:center;}
-    .testimonial-box{background:#fff;padding:30px;border-radius:8px;max-width:800px;margin:0 auto;font-style:italic;box-shadow:0 4px 10px rgba(0,0,0,.05);}
+    /* GALLERY (Recent work) */
+    .gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;margin-top:18px}
+    .gallery img{border-radius:12px;aspect-ratio:4/3;object-fit:cover}
+
+    /* SOCIAL PROOF / REVIEWS */
+    .reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px;margin-top:18px}
+    .review{background:#fff;border:1px solid #e9eef3;border-radius:12px;padding:16px}
+    .review b{display:block;margin-bottom:6px}
+
+    /* SERVICE AREAS */
+    .areas{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px;margin-top:14px}
+    .areas a{display:block;padding:10px 12px;border:1px solid #dfe7ef;border-radius:10px;background:#fff}
+    .areas a:hover{border-color:#cbd7e5}
+
+    /* FAQ */
+    details{border:1px solid #dfe7ef;border-radius:12px;padding:12px 14px;background:#fff}
+    details+details{margin-top:10px}
+    summary{cursor:pointer;font-weight:800;color:#0b2c5a}
+    details p{margin-top:8px;color:#3b4552}
 
     /* FOOTER */
-    footer{background:#1a1a1a;color:#aaa;padding:50px 10%;font-size:.9rem;}
-    .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:40px;margin-bottom:40px;}
-    .footer-col h4{color:#fff;margin-bottom:20px;}
-    .footer-col ul li{margin-bottom:10px;}
-    .footer-bottom{border-top:1px solid #333;padding-top:20px;text-align:center;}
+    footer{background:#0b0f16;color:#b8c2cf}
+    .footer-top{display:grid;grid-template-columns:2fr 1fr 1fr;gap:24px;padding:36px 20px}
+    .footer-top h4{color:#fff;margin:0 0 10px}
+    .footer-nap p{margin:6px 0}
+    .footer-links a{display:block;padding:4px 0}
+    .foot-bottom{border-top:1px solid #202734;padding:16px 20px;text-align:center}
+    @media (max-width:900px){.footer-top{grid-template-columns:1fr}}
 
-    /* CHATBOT */
-    .chatbot-toggler{
-      position:fixed;bottom:30px;right:35px;outline:none;border:none;height:60px;width:60px;
-      display:flex;align-items:center;justify-content:center;border-radius:50%;
-      background:var(--electric-blue);cursor:pointer;transition:all .2s ease;
-      box-shadow:0 4px 15px rgba(0,0,0,.2);z-index:2000;
-    }
-    .chatbot-toggler span{color:#fff;font-size:30px;}
-    .chatbot{
-      position:fixed;right:35px;bottom:100px;width:350px;background:#fff;border-radius:15px;overflow:hidden;
-      opacity:0;pointer-events:none;transform:scale(.5);transform-origin:bottom right;
-      box-shadow:0 0 128px 0 rgba(0,0,0,.1),0 32px 64px -48px rgba(0,0,0,.5);transition:all .3s ease;z-index:2000;
-    }
-    body.show-chatbot .chatbot{opacity:1;pointer-events:auto;transform:scale(1);}
-    .chatbot header{background:var(--electric-blue);padding:16px 0;position:relative;text-align:center;color:#fff;}
-    .chatbot header h2{font-size:1.2rem;display:flex;align-items:center;justify-content:center;gap:8px;}
-    .chatbox{overflow-y:auto;height:300px;padding:15px 20px 70px;background:#fbfbfb;}
-    .chatbox .chat{display:flex;list-style:none;margin-bottom:15px;}
-    .chatbox .outgoing{margin:20px 0;justify-content:flex-end;}
-    .chatbox .incoming span{width:32px;height:32px;color:#fff;background:var(--electric-blue);text-align:center;line-height:32px;border-radius:4px;margin-right:10px;align-self:flex-end;}
-    .chatbox .chat p{white-space:pre-wrap;padding:12px 16px;border-radius:10px 10px 0 10px;max-width:75%;font-size:.95rem;}
-    .chatbox .outgoing p{background:var(--electric-blue);color:#fff;border-radius:10px 10px 10px 0;}
-    .chatbox .incoming p{background:#e2e2e2;color:#000;border-radius:10px 10px 10px 0;}
-    .chat-input{position:absolute;bottom:0;width:100%;display:flex;gap:5px;background:#fff;padding:3px 20px;border-top:1px solid #ddd;}
-    .chat-input textarea{height:55px;width:100%;border:none;outline:none;resize:none;max-height:180px;padding:15px 15px 15px 0;font-size:.95rem;}
-    .chat-input span{align-self:flex-end;color:var(--electric-blue);cursor:pointer;height:55px;display:flex;align-items:center;font-weight:bold;font-size:1.2rem;}
-
-    /* RESPONSIVE: at narrow widths, use a 3x5 grid and re-map cells */
-    @media (max-width:700px){
-      .nav-links,.phone-number{display:none;}
-      .hero{
-        grid-template-columns: repeat(3, 1fr); /* 3 columns on mobile */
-        grid-template-rows: repeat(5, minmax(0, 1fr));
-      }
-      /* re-place: badges row 3 col 1-3, button row 5 col 2 (center) */
-      .badge.fb  { grid-row:3; grid-column:1; }
-      .badge.gg  { grid-row:3; grid-column:2; }
-      .badge.bbb { grid-row:3; grid-column:3; }
-      .btn-gradient{ grid-row:5; grid-column:2; }
+    /* MOBILE ADJUSTMENTS FOR HERO GRID */
+    @media (max-width:720px){
+      .hero{grid-template-columns:repeat(3,1fr);grid-template-rows:repeat(5, minmax(0,1fr))}
+      .badge.fb{grid-row:3;grid-column:1}
+      .badge.gg{grid-row:3;grid-column:2}
+      .badge.bbb{grid-row:3;grid-column:3}
+      .btn-hero{grid-row:5;grid-column:2}
     }
   </style>
 </head>
 <body>
-
-  <nav>
-    <div class="brand">
-      <div class="logo-mark">⚡</div>
-      <div class="logo-text">APEX <span>ELECTRICAL</span></div>
-    </div>
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">Residential</a>
-      <a href="#">Commercial</a>
-      <a href="#">About Us</a>
-    </div>
-    <div class="nav-cta">
-      <div class="phone-number">📞 1300 SPARKIE</div>
-      <button class="btn">Get a Free Quote</button>
+  <!-- NAV -->
+  <nav role="navigation" aria-label="Primary">
+    <div class="nav-wrap container">
+      <div class="brand" aria-label="Apex Electrical">
+        <div class="mark" aria-hidden="true">⚡</div>
+        <div class="name">APEX <span>ELECTRICAL</span></div>
+      </div>
+      <div class="nav-links" role="menubar">
+        <a href="#services" role="menuitem">Services</a>
+        <a href="#process" role="menuitem">Our Process</a>
+        <a href="#gallery" role="menuitem">Projects</a>
+        <a href="#reviews" role="menuitem">Reviews</a>
+        <a href="#areas" role="menuitem">Service Areas</a>
+        <a href="#faq" role="menuitem">FAQ</a>
+      </div>
+      <div class="nav-cta">
+        <div class="phone">📞 1300 SPARKIE</div>
+        <a class="btn" href="#quote">Get a Free Quote</a>
+      </div>
     </div>
   </nav>
 
-  <header class="hero">
-    <!-- row 3, col 1 -->
+  <!-- HERO with 5x5 grid placements as requested -->
+  <header class="hero" role="banner" aria-label="Trusted electricians - hero">
+    <!-- 3;1 -->
     <div class="badge fb" aria-label="Facebook reviews 4.9 based on 49 reviews">
       <div class="logo" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="#1877F2" xmlns="http://www.w3.org/2000/svg">
-          <path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.19 8.44 9.93v-7.03H8.9v-2.9h1.54V9.83c0-1.52.9-2.36 2.29-2.36.66 0 1.36.12 1.36.12v1.5h-.77c-.76 0-1 .47-1 .96v1.15h1.7l-.27 2.9h-1.43V22c4.78-.74 8.44-4.9 8.44-9.93z"/>
-        </svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="#1877F2" xmlns="http://www.w3.org/2000/svg"><path d="M22 12.07C22 6.48 17.52 2 11.93 2S2 6.48 2 12.07c0 5.02 3.66 9.19 8.44 9.93v-7.03H8.9v-2.9h1.54V9.83c0-1.52.9-2.36 2.29-2.36.66 0 1.36.12 1.36.12v1.5h-.77c-.76 0-1 .47-1 .96v1.15h1.7l-.27 2.9h-1.43V22c4.78-.74 8.44-4.9 8.44-9.93z"/></svg>
       </div>
       <div>
         <div class="title">Facebook</div>
         <div><strong>4.9</strong> <span class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></span></div>
-        <div class="subtitle muted">Based on 49 reviews</div>
+        <div class="muted">Based on 49 reviews</div>
       </div>
     </div>
-
-    <!-- row 3, col 2 -->
+    <!-- 3;2 -->
     <div class="badge gg" aria-label="Google reviews 4.8 based on 38 reviews">
       <div class="logo" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path fill="#EA4335" d="M12 11v2.9h4.9C16.5 16.9 14.5 18 12 18a6 6 0 1 1 0-12c1.6 0 3 .6 4.1 1.6l2-2A9 9 0 1 0 12 21c4.6 0 8.6-3.3 8.6-9 0-.6-.1-1.1-.2-1.6H12z"/>
-          <path fill="#4285F4" d="M21.8 12.4c.1-.6.2-1.1.2-1.6H12v3.9h4.9c-.5 1.4-1.7 2.4-3.4 2.4-2 0-3.7-1.7-3.7-3.7S11.5 9.7 13.5 9.7c.9 0 1.6.3 2.2.8l2-2c-1.1-1-2.5-1.6-4.1-1.6A6 6 0 1 0 18 18c2.7-1.8 3.8-4.8 3.8-5.6z" opacity=".001"/>
-        </svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M12 11v2.9h4.9C16.5 16.9 14.5 18 12 18a6 6 0 1 1 0-12c1.6 0 3 .6 4.1 1.6l2-2A9 9 0 1 0 12 21c4.6 0 8.6-3.3 8.6-9 0-.6-.1-1.1-.2-1.6H12z"/></svg>
       </div>
       <div>
         <div class="title">Google</div>
         <div><strong>4.8</strong> <span class="stars"><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span><span class="star">★</span></span></div>
-        <div class="subtitle muted">Based on 38 reviews</div>
+        <div class="muted">Based on 38 reviews</div>
       </div>
     </div>
-
-    <!-- row 3, col 3 -->
+    <!-- 3;3 -->
     <div class="badge bbb" aria-label="BBB A+ Accredited Business">
       <div class="logo" aria-hidden="true">
-        <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <rect width="22" height="22" rx="3" fill="#0A6FB6"/>
-          <rect x="5" y="6" width="12" height="10" rx="2" fill="#fff"/>
-        </svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="22" height="22" rx="3" fill="#0A6FB6"/><rect x="5" y="6" width="12" height="10" rx="2" fill="#fff"/></svg>
       </div>
       <div>
         <div class="title">A+ <span class="muted">Rating</span></div>
-        <div class="subtitle">Accredited Business</div>
+        <div class="muted">Accredited Business</div>
       </div>
     </div>
-
-    <!-- row 5, col 3 -->
-    <button class="btn-gradient">Get a free quote</button>
+    <!-- 5;3 CTA -->
+    <a href="#quote" class="btn-hero" aria-label="Get a free quote">Get a free quote</a>
   </header>
 
-  <section class="services">
-    <div class="section-header">
-      <h2>Our Expertise</h2>
-      <p>Just like a good roof protects your home from the top down, a safe electrical system protects everything inside it.</p>
+  <!-- PROMISE STRIP - mirrors benchmark trust strip -->
+  <section class="strip" aria-label="Trust promises">
+    <div class="container">
+      <div class="item">🛡️ <div><b>Licensed & insured</b><span>All work to AS/NZS 3000</span></div></div>
+      <div class="item">⏱️ <div><b>On-time or we pay you</b><span>Clear arrival windows</span></div></div>
+      <div class="item">💬 <div><b>Upfront pricing</b><span>No surprises at the end</span></div></div>
     </div>
+  </section>
 
-    <div class="service-grid">
-      <div class="service-card">
-        <img src="assets/switchboard.png" alt="New Switchboard" />
-        <div class="card-content">
-          <h3>Switchboard Upgrades</h3>
-          <p>Still on ceramic fuses? We upgrade homes to modern standards with mandatory RCBO safety switches to protect your family.</p>
-          <a href="#">Learn About Safety →</a>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <img src="assets/lighting.png" alt="LED Lighting" />
-        <div class="card-content">
-          <h3>LED Lighting & Fans</h3>
-          <p>Transform your home with energy efficient LED downlights or ceiling fans. We supply and install leading Aussie brands.</p>
-          <a href="#">View Lighting Options →</a>
-        </div>
-      </div>
-
-      <div class="service-card">
-        <img src="assets/repair.png" alt="Powerpoint Installation" />
-        <div class="card-content">
-          <h3>Power Points & Repairs</h3>
-          <p>Faulty switches? Need extra outlets? We provide fast repairs and installations with a focus on neatness and compliance.</p>
-          <a href="#">Book a Repair →</a>
-        </div>
+  <!-- SERVICES -->
+  <section id="services" class="section">
+    <div class="container">
+      <h2>Residential & Commercial Electrical</h2>
+      <p class="lead">Focused service lines for quality delivery - inspections, repairs, upgrades, and installations done right.</p>
+      <div class="services" aria-label="Service categories">
+        <article class="card">
+          <img src="assets/switchboard.png" alt="Modern switchboard with RCBOs" loading="lazy" width="640" height="400" />
+          <div class="body">
+            <h3>Switchboard Upgrades</h3>
+            <p>Replace old fuses with RCBO safety switches and surge protection.</p>
+            <a href="#quote">Book inspection →</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/lighting.png" alt="LED downlights in living room" loading="lazy" width="640" height="400" />
+          <div class="body">
+            <h3>LED Lighting & Fans</h3>
+            <p>Design, supply and install energy efficient lighting and ceiling fans.</p>
+            <a href="#quote">View options →</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/repair.png" alt="Electrician repairing power point" loading="lazy" width="640" height="400" />
+          <div class="body">
+            <h3>Power Points & Repairs</h3>
+            <p>Extra outlets, safety fixes, and neat remedial work.</p>
+            <a href="#quote">Book a repair →</a>
+          </div>
+        </article>
+        <article class="card">
+          <img src="assets/ev.png" alt="EV charger wall unit installation" loading="lazy" width="640" height="400" />
+          <div class="body">
+            <h3>EV Chargers</h3>
+            <p>Home and small business EV charging solutions with load control.</p>
+            <a href="#quote">Install EV charger →</a>
+          </div>
+        </article>
       </div>
     </div>
   </section>
 
-  <section class="why-us">
-    <div class="section-header">
-      <h2>The Apex Difference</h2>
-      <p>Old School Service, Modern Standards.</p>
-    </div>
-    <div class="features-grid">
-      <div class="feature-item">
-        <h3>✅ Fully Licensed & Insured</h3>
-        <p>REC #555123. We carry $20M public liability insurance. All work complies strictly with AS/NZS 3000 Wiring Rules.</p>
-      </div>
-      <div class="feature-item">
-        <h3>✅ We Turn Up On Time</h3>
-        <p>We provide clear arrival windows and call when we are on the way. No waiting around all day.</p>
-      </div>
-      <div class="feature-item">
-        <h3>✅ Lifetime Guarantee</h3>
-        <p>If our installation fails due to workmanship, we fix it for free. Forever.</p>
-      </div>
-      <div class="feature-item">
-        <h3>✅ Upfront Pricing</h3>
-        <p>We provide transparent pricing before we start the job. No nasty surprises at the end.</p>
+  <!-- PROCESS - mirrors D&M style "we dominate two lines" with a simple 3-step -->
+  <section id="process" class="section" style="background:var(--light)">
+    <div class="container">
+      <h2>How It Works</h2>
+      <p class="lead">Simple, transparent, accountable.</p>
+      <div class="process" aria-label="Our process">
+        <div class="step"><b>1. Diagnose</b>We assess risks, compliance, and load. You get a clear scope and price.</div>
+        <div class="step"><b>2. Fix & Upgrade</b>Licensed work done to code with neat cabling and labelled circuits.</div>
+        <div class="step"><b>3. Verify</b>Testing, certification and photo proof supplied with your invoice.</div>
       </div>
     </div>
   </section>
 
-  <section class="testimonials">
-    <div class="testimonial-box">
-      <p>"Had Alex from Apex out to upgrade our old fuse box. He was polite, turned up exactly when he said he would, and left the garage spotless. Great to find an honest local sparkie."</p>
-      <p style="margin-top:15px;font-weight:bold;">- Sarah T., Local Resident ⭐⭐⭐⭐⭐</p>
+  <!-- GALLERY / RECENT PROJECTS -->
+  <section id="gallery" class="section">
+    <div class="container">
+      <h2>Recent Projects</h2>
+      <div class="gallery" aria-label="Project gallery">
+        <img src="assets/g1.jpg" alt="Switchboard upgrade before and after" loading="lazy" width="600" height="450" />
+        <img src="assets/g2.jpg" alt="LED downlight installation" loading="lazy" width="600" height="450" />
+        <img src="assets/g3.jpg" alt="Warehouse lighting retrofit" loading="lazy" width="600" height="450" />
+        <img src="assets/g4.jpg" alt="EV charger on garage wall" loading="lazy" width="600" height="450" />
+      </div>
     </div>
   </section>
 
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-col">
-        <h4>Apex Electrical Solutions</h4>
-        <p>REC: 555123 | ABN: 12 345 678 910</p>
-        <p>Servicing the Greater Metropolitan Area.</p>
+  <!-- REVIEWS -->
+  <section id="reviews" class="section" style="background:var(--light)">
+    <div class="container">
+      <h2>What Clients Say</h2>
+      <div class="reviews" aria-label="Customer reviews">
+        <blockquote class="review"><b>Sarah T.</b>Had Alex upgrade our old fuse box. On time, tidy, and patient explaining safety switches.</blockquote>
+        <blockquote class="review"><b>Michael D.</b>Fast fix on a tripping circuit. Pricing was fair and they cleaned up properly.</blockquote>
+        <blockquote class="review"><b>Jodie R.</b>Great lighting design for our reno. Night and day difference!</blockquote>
       </div>
-      <div class="footer-col">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Electrical Safety Check</a></li>
-          <li><a href="#">Privacy Policy</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Contact</h4>
+    </div>
+  </section>
+
+  <!-- SERVICE AREAS -->
+  <section id="areas" class="section">
+    <div class="container">
+      <h2>Service Areas</h2>
+      <p class="lead">Greater Metro - within 50 km of the CBD.</p>
+      <nav class="areas" aria-label="Suburbs">
+        <a href="#quote">CBD</a><a href="#quote">Northern Suburbs</a><a href="#quote">Eastern Suburbs</a>
+        <a href="#quote">South</a><a href="#quote">West</a><a href="#quote">Hills District</a>
+        <a href="#quote">Inner West</a><a href="#quote">Bayside</a><a href="#quote">More…</a>
+      </nav>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section" style="background:var(--light)">
+    <div class="container">
+      <h2>FAQ</h2>
+      <details><summary>How can I trust the quality of your work?</summary><p>Licensed A-Grade electricians, insured, and we comply with AS/NZS 3000. Warranty on workmanship.</p></details>
+      <details><summary>Do you do commercial work?</summary><p>Yes - retail fitouts, offices, warehouses, compliance upgrades and maintenance.</p></details>
+      <details><summary>Can I get a firm price?</summary><p>Yes. After diagnosis we give a fixed, written price before work starts.</p></details>
+      <details><summary>Emergency help?</summary><p>Call 1300 SPARKIE. If there is fire, call 000 first. Do not touch damaged equipment.</p></details>
+    </div>
+  </section>
+
+  <!-- QUOTE FORM / CTA -->
+  <section id="quote" class="section">
+    <div class="container">
+      <h2>Get Your Free Quote</h2>
+      <p class="lead">Tell us about the job. We will confirm a time window and send a licensed electrician.</p>
+      <form action="/quote" method="post" class="container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;max-width:960px;padding:0">
+        <input name="name" placeholder="Full name" required aria-label="Full name" />
+        <input name="phone" placeholder="Phone" required aria-label="Phone" />
+        <input name="email" type="email" placeholder="Email" aria-label="Email" />
+        <input name="suburb" placeholder="Suburb" aria-label="Suburb" />
+        <textarea name="message" placeholder="Describe the issue" rows="4" style="grid-column:1/-1"></textarea>
+        <button class="btn" type="submit">Submit</button>
+        <p style="grid-column:1/-1;color:#6b7280;font-size:.9rem">By submitting you agree to be contacted by Apex Electrical regarding your enquiry.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer role="contentinfo">
+    <div class="container footer-top">
+      <div class="footer-nap">
+        <h4>Apex Electrical</h4>
+        <p>REC 555123 | ABN 12 345 678 910</p>
+        <p>Mon - Fri 7:00 - 17:00</p>
+        <p>📍 Greater Metropolitan Area</p>
         <p>📞 1300 SPARKIE</p>
         <p>✉️ admin@apexelectrical.com.au</p>
-        <p>⏰ Mon-Fri: 7am - 5pm</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <div class="footer-links">
+          <a href="#services">Services</a>
+          <a href="#process">Our Process</a>
+          <a href="#gallery">Projects</a>
+          <a href="#faq">FAQ</a>
+          <a href="#quote">Get a Quote</a>
+        </div>
+      </div>
+      <div>
+        <h4>Policies</h4>
+        <div class="footer-links">
+          <a href="/privacy.html">Privacy Policy</a>
+          <a href="/terms.html">Terms</a>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom">
-      <p>&copy; 2024 Apex Electrical Solutions Pty Ltd.</p>
-    </div>
+    <div class="foot-bottom">© 2025 Apex Electrical. All rights reserved.</div>
   </footer>
 
-  <button class="chatbot-toggler"><span>💬</span></button>
-  <div class="chatbot">
-    <header><h2>🤖 SparkyBot</h2></header>
-    <ul class="chatbox">
-      <li class="chat incoming">
-        <span>🤖</span>
-        <p>G'day! I'm SparkyBot. How can I help with your electrical needs today?</p>
-      </li>
-    </ul>
-    <div class="chat-input">
-      <textarea placeholder="Type a message..." required></textarea>
-      <span id="send-btn">➤</span>
-    </div>
-  </div>
+  <!-- JSON-LD: LocalBusiness + AggregateRating (benchmarked from structure with reviews and service areas) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"Apex Electrical",
+    "image":"https://www.apexelectrical.example/assets/og-hero.jpg",
+    "telephone":"+61-1300-SPARKIE",
+    "email":"admin@apexelectrical.com.au",
+    "areaServed":"Greater Metropolitan Area",
+    "address":{"@type":"PostalAddress","addressRegion":"State","addressCountry":"AU"},
+    "openingHours":"Mo-Fr 07:00-17:00",
+    "url":"https://www.apexelectrical.example/",
+    "sameAs":[
+      "https://www.facebook.com/",
+      "https://www.instagram.com/",
+      "https://www.google.com/"
+    ],
+    "priceRange":"$$",
+    "aggregateRating":{
+      "@type":"AggregateRating",
+      "ratingValue":"4.9",
+      "reviewCount":"87"
+    },
+    "department":[
+      {"@type":"LocalBusiness","name":"Residential Electrical"},
+      {"@type":"LocalBusiness","name":"Commercial Electrical"}
+    ]
+  }
+  </script>
 
+  <!-- JSON-LD: Website w/ SearchAction -->
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","url":"https://www.apxelectrical.example/","potentialAction":{"@type":"SearchAction","target":"https://www.apxelectrical.example/search?q={query}","query-input":"required name=query"}}
+  </script>
+
+  <!-- JSON-LD: FAQPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {"@type":"Question","name":"How can I trust the quality of your work?","acceptedAnswer":{"@type":"Answer","text":"Licensed A-Grade electricians, insured, and we comply with AS/NZS 3000. Warranty on workmanship."}},
+      {"@type":"Question","name":"Do you do commercial work?","acceptedAnswer":{"@type":"Answer","text":"Yes, including retail fitouts, offices, warehouses, compliance upgrades and maintenance."}},
+      {"@type":"Question","name":"Can I get a firm price?","acceptedAnswer":{"@type":"Answer","text":"After diagnosis we provide a fixed, written price before work starts."}},
+      {"@type":"Question","name":"Emergency help?","acceptedAnswer":{"@type":"Answer","text":"Call 1300 SPARKIE. If there is fire, call 000 first. Do not touch damaged equipment."}}
+    ]
+  }
+  </script>
+
+  <!-- Minimal JS for details smooth scroll (no frameworks) -->
   <script>
-    const chatbotToggler=document.querySelector(".chatbot-toggler");
-    const chatInput=document.querySelector(".chat-input textarea");
-    const sendChatBtn=document.querySelector(".chat-input span");
-    const chatbox=document.querySelector(".chatbox");
-    let userMessage;
-
-    const createChatLi=(message,className)=>{
-      const li=document.createElement("li");
-      li.classList.add("chat",className);
-      li.innerHTML=className==="outgoing"?`<p></p>`:`<span>🤖</span><p></p>`;
-      li.querySelector("p").textContent=message;
-      return li;
-    };
-
-    const generateResponse=(incomingLi)=>{
-      const messageEl=incomingLi.querySelector("p");
-      const lower=userMessage.toLowerCase();
-      let response="";
-      if(lower.includes("spark")||lower.includes("smoke")||lower.includes("fire")||lower.includes("tingle")||lower.includes("buzz")||lower.includes("bang")){
-        response="⚠️ SAFETY WARNING: This sounds like an electrical emergency. Please stay away from the area. If there is fire, call 000 immediately. Otherwise, call our emergency line on 1300 SPARKIE right now. Do not touch the affected equipment.";
-      }else if(lower.includes("price")||lower.includes("cost")||lower.includes("quote")||lower.includes("how much")){
-        response="Because every home is wired differently, we don't give blind quotes online. We offer upfront pricing once we see the job. Would you like to book a free onsite assessment?";
-      }else if(lower.includes("location")||lower.includes("area")||lower.includes("suburb")){
-        response="We service the entire metropolitan area. If you are within 50km of the CBD, we've got you covered.";
-      }else{
-        response="Thanks for the message. I'm a specialized bot, so I might not know that answer. To chat with a real sparkie, please call 1300 SPARKIE or click 'Book Online'.";
-      }
-      setTimeout(()=>{messageEl.textContent=response;chatbox.scrollTo(0,chatbox.scrollHeight);},600);
-    };
-
-    const handleChat=()=>{
-      userMessage=chatInput.value.trim();
-      if(!userMessage) return;
-      chatbox.appendChild(createChatLi(userMessage,"outgoing"));
-      chatbox.scrollTo(0,chatbox.scrollHeight);
-      chatInput.value="";
-      setTimeout(()=>{
-        const incoming=createChatLi("Thinking...","incoming");
-        chatbox.appendChild(incoming);
-        chatbox.scrollTo(0,chatbox.scrollHeight);
-        generateResponse(incoming);
-      },600);
-    };
-
-    sendChatBtn.addEventListener("click",handleChat);
-    chatInput.addEventListener("keydown",(e)=>{
-      if(e.key==="Enter"&&!e.shiftKey){e.preventDefault();handleChat();}
+    // smooth scroll for internal anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.added=true;
+      a.addEventListener('click',e=>{
+        const id=a.getAttribute('href').slice(1);
+        const el=document.getElementById(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth',block:'start'}) }
+      });
     });
-    chatbotToggler.addEventListener("click",()=>document.body.classList.toggle("show-chatbot"));
   </script>
 </body>
 </html>
