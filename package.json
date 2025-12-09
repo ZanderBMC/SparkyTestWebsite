@@ -1,0 +1,20 @@
+{
+  "name": "sparky-test-website",
+  "version": "1.0.0",
+  "description": "Apex Electrical website",
+  "scripts": {
+    "dev": "serve . -p 3000",
+    "start": "serve . -p 3000",
+    "generate-hero": "node generate-hero.js",
+    "generate-process": "node generate-process-images.js",
+    "generate-projects": "node generate-project-images.js"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@fal-ai/client": "^1.7.2",
+    "serve": "^14.2.1"
+  },
+  "dependencies": {
+    "node-fetch": "2"
+  }
+}
